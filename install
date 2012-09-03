@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# zsh
+# (with oh-my-zsh: https://github.com/robbyrussell/oh-my-zsh)
+curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
+cp zshrc ~/.zshrc
+
+# vim
+# (with janus, https://github.com/carlhuda/janus
+curl -Lo- https://bit.ly/janus-bootstrap | bash
+cp vimrc.local ~/.vimrc.local
+
+# tmux
+cp tmux.conf ~/.tmux.conf
