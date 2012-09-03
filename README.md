@@ -13,8 +13,10 @@ vim plugins and themes
 
 # Installation
 
-To install, just run the following command:
+To install, just run the following commands:
 ```
+git clone git@github.com:timcheadle/dotfiles.git ~/.dotfiles
+cd ~/.dotfiles
 ./install
 ```
 
