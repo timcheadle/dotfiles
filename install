@@ -4,7 +4,7 @@
 function install_file {
   how=$1; shift
 
-  if [ -f ~/".$1" ]; then
+  if [[ -f ~/".$1" && ! -L ~/".$1" ]]; then
     echo -e "\nArchiving ~/.$1 to ~/.dotfiles-archive/.$1\n"
     mkdir -p ~/.dotfiles-archive
     mv ~/".$1" ~/.dotfiles-archive/
