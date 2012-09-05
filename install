@@ -37,8 +37,10 @@ else
 fi
 link_file oh-my-zsh/custom/timcheadle.zsh-theme
 link_file zshrc
-echo "Switching default shells to $(which zsh)..."
-chsh -s $(which zsh)
+if [[ $SHELL != *"zsh" ]]; then
+  echo "Switching default shells to $(which zsh)..."
+  chsh -s $(which zsh)
+fi
 
 # vim
 # (with janus, https://github.com/carlhuda/janus
