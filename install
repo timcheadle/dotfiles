@@ -1,14 +1,64 @@
 #!/bin/bash
 
+# Archive existing files
+function install_file {
+  how=$1; shift
+
+  if [ -f ~/".$1" ]; then
+    echo -e "\nArchiving ~/.$1 to ~/.dotfiles-archive/.$1\n"
+    mkdir -p ~/.dotfiles-archive
+    mv ~/".$1" ~/.dotfiles-archive/
+  fi
+
+  if [ $how == "link" ]; then
+    ln -sf ~/.dotfiles/"$1" ~/".$1"
+  elif [ $how == "copy" ]; then
+    cp ~/.dotfiles/"$1" ~/".$1"
+  fi
+}
+function copy_file {
+  install_file copy "$1"
+}
+function link_file {
+  install_file link "$1"
+}
+
 # zsh
 # (with oh-my-zsh: https://github.com/robbyrussell/oh-my-zsh)
-curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
-cp zshrc ~/.zshrc
+echo -e "\nSetting up zsh..."
+if [ -d ~/.oh-my-zsh ]; then
+  echo -e "Updating Oh My Zsh\n"
+  cd ~/.oh-my-zsh
+  git pull
+  cd -
+else
+  echo -e "Installing Oh My Zsh\n"
+  curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
+fi
+link_file zshrc
+echo "Switching default shells to $(which zsh)..."
+chsh -s $(which zsh)
 
 # vim
 # (with janus, https://github.com/carlhuda/janus
-curl -Lo- https://bit.ly/janus-bootstrap | bash
-cp vimrc.local ~/.vimrc.local
+echo -e "\nSetting up vim...\n"
+if [ -d ~/.vim/janus ]; then
+  cd ~/.vim
+  rake
+  cd -
+else
+  curl -Lo- https://bit.ly/janus-bootstrap | bash
+fi
+link_file vimrc.local
+
+# git
+echo -e "\nSetting up git...\n"
+link_file gitignore
 
 # tmux
-cp tmux.conf ~/.tmux.conf
+echo -e "\nSetting up tmux...\n"
+link_file tmux.conf
+
+echo ""
+echo "To complete the installation, just log out and then back in."
+echo ""
