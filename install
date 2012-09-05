@@ -13,7 +13,7 @@ function install_file {
   if [ $how == "link" ]; then
     ln -sf ~/.dotfiles/"$1" ~/".$1"
   elif [ $how == "copy" ]; then
-    cp ~/.dotfiles/"$1" ~/".$1"
+    cp -R ~/.dotfiles/"$1" ~/".$1"
   fi
 }
 function copy_file {
@@ -35,6 +35,7 @@ else
   echo -e "Installing Oh My Zsh\n"
   curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
 fi
+link_file oh-my-zsh/custom/timcheadle.zsh-theme
 link_file zshrc
 echo "Switching default shells to $(which zsh)..."
 chsh -s $(which zsh)
