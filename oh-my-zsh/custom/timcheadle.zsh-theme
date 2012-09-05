@@ -16,7 +16,7 @@ function my_host_prompt() {
     echo "%{$reset_color%}%{$fg_bold[yellow]%}@%m%{$reset_color%}"
   else
     # Local host
-    echo "%{$reset_color%}@%{$fg_bold[green]%}%m%{$reset_color%}"
+    echo "%{$reset_color%}%{$fg_bold[green]%}@%m%{$reset_color%}"
   fi
 }
 
