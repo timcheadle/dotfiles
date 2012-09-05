@@ -5,7 +5,7 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+ZSH_THEME="lukerandall"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -34,4 +34,24 @@ plugins=(git bundler brew gem)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
+PATH=/bin:$PATH
+PATH=/sbin:$PATH
+PATH=/usr/bin:$PATH
+PATH=/usr/sbin:$PATH
+PATH=/usr/local/bin:$PATH
+PATH=~/bin:$PATH
+PATH=~/.rbenv/bin:$PATH
+export PATH
+
+# Set up rbenv
+eval "$(rbenv init -)"
+
+# Aliases
+alias gs='git status'
+alias gd='git diff --color'
+alias gpl='git pull --rebase'
+
+# Import any host-specific config
+if [ -f ~/.zshrc.local ]; then
+  source ~/.zshrc.local
+fi
