@@ -35,8 +35,10 @@ else
   echo -e "Installing Oh My Zsh\n"
   curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
 fi
+
 link_file oh-my-zsh/custom/timcheadle.zsh-theme
 link_file zshrc
+
 if [[ $SHELL != *"zsh" ]]; then
   echo "Switching default shells to $(which zsh)..."
   chsh -s $(which zsh)
@@ -52,7 +54,10 @@ if [ -d ~/.vim/janus ]; then
 else
   curl -Lo- https://bit.ly/janus-bootstrap | bash
 fi
-link_file vimrc.local
+
+link_file vimrc.after
+# Janus customizations go in ~/.janus
+link_file janus
 
 # git
 echo -e "\nSetting up git...\n"
