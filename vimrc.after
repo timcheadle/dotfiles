@@ -17,3 +17,6 @@ set mouse=a
 
 " Open vsplit file under cursor
 map <Leader>vf :vertical wincmd f<CR>
+
+" Highlight the current line
+set cursorline
