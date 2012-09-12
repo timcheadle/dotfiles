@@ -13,7 +13,7 @@ function my_git_prompt_info() {
 function my_host_prompt() {
   if [[ ! -z $SSH_CONNECTION ]]; then
     # Remote SSH host
-    echo "%{$reset_color%}%{$fg_bold[white]%}@%m%{$reset_color%}"
+    echo "%{$reset_color%}%{$fg_bold[magenta]%}@%m%{$reset_color%}"
   else
     # Local host
     echo "%{$reset_color%}%{$fg_bold[green]%}@%m%{$reset_color%}"
