@@ -43,8 +43,8 @@ PATH=~/bin:$PATH
 PATH=~/.rbenv/bin:$PATH
 export PATH
 
-# Set up rbenv
-#eval "$(rbenv init -)"
+# LS colors
+export LSCOLORS=exfxcxdxbxegedabagacad
 
 # Aliases
 alias gs='git status'
