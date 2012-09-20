@@ -40,7 +40,6 @@ PATH=/usr/bin:$PATH
 PATH=/usr/sbin:$PATH
 PATH=/usr/local/bin:$PATH
 PATH=~/bin:$PATH
-PATH=~/.rbenv/bin:$PATH
 export PATH
 
 # LS colors
