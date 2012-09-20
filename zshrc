@@ -29,8 +29,9 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(brew bundler gem git rbenv)
+plugins=(brew bundler gem git github rbenv)
 
+# Load oh my zsh
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
@@ -45,7 +46,13 @@ export PATH
 # LS colors
 export LSCOLORS=exfxcxdxbxegedabagacad
 
-# Aliases
+# Editor
+export EDITOR=vim
+
+# Rails
+alias bx='bundle exec'
+
+# Git
 alias gs='git status'
 alias gd='git diff --color'
 alias gpl='git pull --rebase'
