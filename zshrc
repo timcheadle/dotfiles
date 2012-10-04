@@ -35,10 +35,6 @@ plugins=(brew bundler gem git github rbenv)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-PATH=/bin:$PATH
-PATH=/sbin:$PATH
-PATH=/usr/bin:$PATH
-PATH=/usr/sbin:$PATH
 PATH=/usr/local/bin:$PATH
 PATH=~/bin:$PATH
 export PATH
