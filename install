@@ -67,6 +67,10 @@ link_file gitignore
 echo -e "\nSetting up tmux...\n"
 link_file tmux.conf
 
+# pow
+echo -e "\nSetting up pow...\n"
+link_file powconfig
+
 echo ""
 echo "To complete the installation, just log out and then back in."
 echo ""
