@@ -39,6 +39,9 @@ PATH=/usr/local/bin:$PATH
 PATH=~/bin:$PATH
 export PATH
 
+# Turn off shared history
+setopt nosharehistory
+
 # LS colors
 export LSCOLORS=exfxcxdxbxegedabagacad
 
