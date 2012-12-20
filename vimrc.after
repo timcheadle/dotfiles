@@ -20,3 +20,6 @@ map <Leader>vf :vertical wincmd f<CR>
 
 " Highlight the current line
 set cursorline
+
+" Don't syntax highlight CSV
+au BufRead *.csv set syntax=off
