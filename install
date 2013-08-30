@@ -4,7 +4,7 @@
 function install_file {
   how=$1; shift
 
-  if [[ -f ~/".$1" && ! -L ~/".$1" ]]; then
+  if [[ -f ~/".$1" || -d ~/".$1" ]]; then
     echo -e "\nArchiving ~/.$1 to ~/.dotfiles-archive/.$1\n"
     mkdir -p ~/.dotfiles-archive
     mv ~/".$1" ~/.dotfiles-archive/
@@ -55,6 +55,9 @@ else
   curl -Lo- https://bit.ly/janus-bootstrap | bash
 fi
 
+# janus customization
+echo -e "\nSetting up janus customization...\n"
+link_file vimrc.before
 link_file vimrc.after
 # Janus customizations go in ~/.janus
 link_file janus
