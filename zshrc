@@ -29,12 +29,13 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(brew bundler gem git git-flow github pow rbenv)
+plugins=(brew bundler gem git git-flow github pow tmuxinator)
 
 # Load oh my zsh
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
+PATH=/usr/local/share/npm/bin:$PATH
 PATH=/usr/local/bin:$PATH
 PATH=~/bin:$PATH
 export PATH
@@ -48,9 +49,16 @@ export LSCOLORS=exfxcxdxbxegedabagacad
 # Editor
 export EDITOR=vim
 
+# Vim
+alias vins='vim -c "syntax off"'
+
+# rbenv (oh-my-zsh plugin is fucked right now)
+eval "$(rbenv init - zsh)"
+
 # Rails
 alias bx='bundle exec'
 alias migrate='rake db:migrate db:migrate:redo db:test:prepare'
+alias db_fuck_you='rake db:drop db:create db:migrate db:seed db:test:prepare'
 
 # Git
 alias gs='git status'

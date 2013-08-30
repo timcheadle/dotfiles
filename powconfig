@@ -1,2 +1,2 @@
-export RBENV_ROOT=/usr/local/Cellar/rbenv/0.3.0
+export RBENV_ROOT=$(rbenv root)
 export PATH="$RBENV_ROOT/shims:$RBENV_ROOT/bin:/usr/local/bin:$PATH"
