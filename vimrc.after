@@ -22,4 +22,11 @@ map <Leader>vf :vertical wincmd f<CR>
 set cursorline
 
 " Don't syntax highlight CSV
-au BufRead *.csv set syntax=off
+au BufRead,BufNewFile *.csv set syntax=off
+
+" Liquid = HTML
+au BufRead,BufNewFile *.liquid setfiletype html
+
+" Comment blocks
+command -nargs=1 CS :normal i//<CR>// <args><CR>//<CR><ESC>
+command -nargs=1 CH :normal i#<CR># <args><CR>#<CR><ESC>
