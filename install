@@ -38,6 +38,7 @@ fi
 
 link_file oh-my-zsh/custom/timcheadle.zsh-theme
 link_file zshrc
+link_file zshrc.local
 
 if [[ $SHELL != *"zsh" ]]; then
   echo "Switching default shells to $(which zsh)..."
@@ -73,6 +74,10 @@ link_file tmux.conf
 # pow
 echo -e "\nSetting up pow...\n"
 link_file powconfig
+
+# bin utilities
+echo -e "\nSetting up bin...\n"
+link_file bin
 
 echo ""
 echo "To complete the installation, just log out and then back in."

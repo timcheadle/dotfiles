@@ -1,0 +1,27 @@
+alias lineify="tr ',' '\n'"
+
+# CSV tools
+alias headers='head -n1 | lineify | cat -n'
+
+# Shopify tools
+function shopify_order {
+  order_num=$1
+  curl https://0e82d313fa20d8752228278832aa0a9c:4c404e961513ee78bc0074aea6ba0838@umba.myshopify.com/admin/orders/$order_num.json | jsonpretty
+}
+function shopify_test_order {
+  order_num=$1
+  curl https://935e89a42c15017146541c70d323769a:848fb8a3a355e751a102b70f3364ce92@umba-labs.myshopify.com/admin/orders/$order_num.json | jsonpretty
+}
+function shopify_product {
+  product_num=$1
+  curl https://0e82d313fa20d8752228278832aa0a9c:4c404e961513ee78bc0074aea6ba0838@umba.myshopify.com/admin/products/$product_num.json | jsonpretty
+}
+
+# Copy production database locally
+function db_prod2dev {
+  app=$1
+  db=$2
+  curl -o latest.dump $(heroku pgbackups:url --app $app) \
+  && heroku pgbackups:capture --app $app --expire \
+  && pg_restore --verbose --clean --no-acl --no-owner -h localhost -U tim -d $db latest.dump
+}

@@ -37,7 +37,7 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 PATH=/usr/local/share/npm/bin:$PATH
 PATH=/usr/local/bin:$PATH
-PATH=~/bin:$PATH
+PATH=~/.bin:$PATH
 export PATH
 
 # Turn off shared history
