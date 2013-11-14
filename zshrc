@@ -59,6 +59,7 @@ eval "$(rbenv init - zsh)"
 alias bx='bundle exec'
 alias migrate='rake db:migrate db:migrate:redo db:test:prepare'
 alias db_fuck_you='rake db:drop db:create db:migrate db:seed db:test:prepare'
+alias rspec='rspec --color'
 
 # Git
 alias gs='git status'
