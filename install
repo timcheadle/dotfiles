@@ -75,6 +75,10 @@ link_file tmux.conf
 echo -e "\nSetting up pow...\n"
 link_file powconfig
 
+# rspec
+echo -e "\nSetting up rspec...\n"
+link_file rspec
+
 # bin utilities
 echo -e "\nSetting up bin...\n"
 link_file bin
