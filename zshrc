@@ -29,7 +29,10 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(brew bundler gem git git-flow github pow tmuxinator)
+plugins=(aws brew bundler gem git git-flow github pow ssh-agent tmuxinator)
+
+# SSH Agent
+zstyle :omz:plugins:ssh-agent identities id_rsa mep-ally-us-east-1.pem mep-ally.pem
 
 # Load oh my zsh
 source $ZSH/oh-my-zsh.sh
