@@ -3,6 +3,11 @@ alias lineify="tr ',' '\n'"
 # CSV tools
 alias headers='head -n1 | lineify | cat -n'
 
+# Rails tools
+function cdr {
+  cd $(rails r 'print Rails.root')
+}
+
 # Shopify tools
 function shopify_order {
   order_num=$1
