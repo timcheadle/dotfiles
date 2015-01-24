@@ -1,5 +1,8 @@
 alias lineify="tr ',' '\n'"
 
+# Github tools
+alias ghb='hub browse'
+
 # CSV tools
 alias headers='head -n1 | lineify | cat -n'
 
@@ -7,6 +10,8 @@ alias headers='head -n1 | lineify | cat -n'
 function cdr {
   cd $(rails r 'print Rails.root')
 }
+alias migrate='bundle exec rake db:migrate && (bundle exec rake db:migrate RAILS_ENV=test)'
+alias rollback='bundle exec rake db:rollback && (bundle exec rake db:rollback RAILS_ENV=test)'
 
 # Shopify tools
 function shopify_order {
