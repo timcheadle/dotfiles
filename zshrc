@@ -32,7 +32,7 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(aws brew bundler gem git git-flow github pow ssh-agent tmuxinator)
 
 # SSH Agent
-zstyle :omz:plugins:ssh-agent identities id_rsa mep-ally-us-east-1.pem mep-ally.pem
+zstyle :omz:plugins:ssh-agent identities id_rsa
 
 # Load oh my zsh
 source $ZSH/oh-my-zsh.sh
