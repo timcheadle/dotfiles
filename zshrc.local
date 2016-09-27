@@ -36,20 +36,6 @@ function cdr {
 alias migrate='bundle exec rake db:migrate && (bundle exec rake db:migrate RAILS_ENV=test)'
 alias rollback='bundle exec rake db:rollback && (bundle exec rake db:rollback RAILS_ENV=test)'
 
-# Shopify tools
-function shopify_order {
-  order_num=$1
-  curl https://0e82d313fa20d8752228278832aa0a9c:4c404e961513ee78bc0074aea6ba0838@umba.myshopify.com/admin/orders/$order_num.json | jsonpp
-}
-function shopify_test_order {
-  order_num=$1
-  curl https://935e89a42c15017146541c70d323769a:848fb8a3a355e751a102b70f3364ce92@umba-labs.myshopify.com/admin/orders/$order_num.json | jsonpp
-}
-function shopify_product {
-  product_num=$1
-  curl https://44a3e92398b460a8f9c21b924a680664:51cf41ab2cca028abd7c5d96e1b996a6@lux-lampshades-2.myshopify.com/admin/products/$product_num.json | jsonpp
-}
-
 # Copy production database locally
 function db_prod2dev {
   app=$1
