@@ -5,7 +5,7 @@ else
     set t_Co=16
 endif
 set background=dark
-color Tomorrow-Night-Custom
+color timcheadle
 
 " Searching
 set noignorecase

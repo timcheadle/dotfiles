@@ -2,7 +2,9 @@
 
 require 'CSV'
 
-csv = CSV($stdin, headers: false, converters: :all)
+delimiter = ARGV[0].nil? ? ',' : ARGV[0]
+
+csv = CSV($stdin, headers: false, converters: :all, col_sep: delimiter)
 
 headers = csv.shift
 data = csv.shift

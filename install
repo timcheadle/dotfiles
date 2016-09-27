@@ -46,22 +46,9 @@ if [[ $SHELL != *"zsh" ]]; then
 fi
 
 # vim
-# (with janus, https://github.com/carlhuda/janus
 echo -e "\nSetting up vim...\n"
-if [ -d ~/.vim/janus ]; then
-  cd ~/.vim
-  rake
-  cd -
-else
-  curl -Lo- https://bit.ly/janus-bootstrap | bash
-fi
-
-# janus customization
-echo -e "\nSetting up janus customization...\n"
-link_file vimrc.before
-link_file vimrc.after
-# Janus customizations go in ~/.janus
-link_file janus
+link_file vim
+link_file vimrc
 
 # git
 echo -e "\nSetting up git...\n"

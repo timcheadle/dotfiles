@@ -41,6 +41,7 @@ source $ZSH/oh-my-zsh.sh
 PATH=/usr/local/share/npm/bin:$PATH
 PATH=/usr/local/bin:$PATH
 PATH=~/Applications:$PATH
+PATH=~/.themekit:$PATH
 PATH=~/.bin:$PATH
 export PATH
 
