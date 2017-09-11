@@ -29,10 +29,10 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(aws brew bundler gem git git-flow github pow ssh-agent tmuxinator)
+plugins=(aws brew bundler gem git git-flow github pow pyenv ssh-agent tmuxinator)
 
 # SSH Agent
-zstyle :omz:plugins:ssh-agent identities id_rsa
+zstyle :omz:plugins:ssh-agent identities id_rsa ga_rsa rationalmeans_rsa
 
 # Load oh my zsh
 source $ZSH/oh-my-zsh.sh
@@ -60,6 +60,9 @@ alias vins='vim -c "syntax off"'
 # rbenv (oh-my-zsh plugin is fucked right now)
 eval "$(rbenv init - zsh)"
 
+# nodenv
+eval "$(nodenv init -)"
+
 # Rails
 alias bx='bundle exec'
 alias migrate='rake db:migrate db:migrate:redo db:test:prepare'
@@ -69,7 +72,7 @@ alias rspec='rspec --color'
 # Git
 alias gs='git status'
 alias gd='git diff --color'
-alias gpl='git pull --rebase'
+alias gpl='git pull'
 
 # Import any host-specific config
 if [ -f ~/.zshrc.local ]; then
