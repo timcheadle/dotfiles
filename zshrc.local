@@ -29,8 +29,6 @@ function master_deploy {
     && git checkout staging
 }
 
-export GITHUB_TOKEN=ac62381d251579913b3e4892164e14640351402d
-
 # GA INFRA ticket branch creation
 function gcoi {
   ticket=$1; shift
