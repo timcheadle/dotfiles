@@ -58,8 +58,12 @@ set wildignore+=*/tmp/librarian/*,*/.vagrant/*,*/.kitchen/*,*/vendor/cookbooks/*
 " Ignore rails temporary asset caches
 set wildignore+=*/tmp/cache/assets/*/sprockets/*,*/tmp/cache/assets/*/sass/*
 
-" Disable temp and backup files
-set wildignore+=*.swp,*~,._*
+" Write temp and backup files to /tmp
+set backup
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set backupskip=/tmp/*,/private/tmp/*
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set writebackup
 
 " Searching
 set incsearch           " search as characters are entered
@@ -70,17 +74,21 @@ nnoremap <silent> <C-N> :nohlsearch<CR>
 " Shortcuts
 let mapleader=","       " leader is comma
 
-" toggle gundo
-nnoremap <leader>u :GundoToggle<CR>
-
 " save session (open again with vim -S)
 nnoremap <leader>s :mksession<CR>
 
 " open ag.vim
+set runtimepath^=~/.vim/bundle/ag
 nnoremap <leader>a :Ag 
 
 " CtrlP
-let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+  let g:ctrlp_use_caching = 0
+endif
 
 " Pathogen
 call pathogen#infect()                      " use pathogen
@@ -123,4 +131,32 @@ let g:syntastic_check_on_wq = 0
 
 " Airline
 set laststatus=2
-let g:airline_theme='tomorrow'
+let g:airline_theme = 'tomorrow'
+let g:airline_powerline_fonts = 1
+" Enable the list of buffers
+let g:airline#extensions#tabline#enabled = 1
+" Show just the filename
+let g:airline#extensions#tabline#fnamemod = ':t'
+
+" Buffergator
+" Use the right side of the screen
+let g:buffergator_viewport_split_policy = 'R'
+
+" I want my own keymappings...
+let g:buffergator_suppress_keymaps = 1
+
+" Looper buffers
+"let g:buffergator_mru_cycle_loop = 1
+
+" Go to the previous buffer open
+nmap <leader>jj :BuffergatorMruCyclePrev<cr>
+
+" Go to the next buffer open
+nmap <leader>kk :BuffergatorMruCycleNext<cr>
+
+" View the entire list of buffers open
+nmap <leader>bl :BuffergatorOpen<cr>
+
+" Shared bindings from Solution #1 from earlier
+nmap <leader>T :enew<cr>
+nmap <leader>bq :bp <BAR> bd #<cr>
