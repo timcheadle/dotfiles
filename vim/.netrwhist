@@ -1,9 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/Users/tim/src/clients/mysterysci/config/routes'
-let g:netrw_dirhist_2='/Users/tim/src/clients/mysterysci/app/controllers/organization'
-let g:netrw_dirhist_3='/Users/tim/src/generalassembly/Gemfile'
-let g:netrw_dirhist_4='/Users/tim/src/clients/journalbooks/journalbooks/spec/factories'
-let g:netrw_dirhist_5='/Users/tim/src/oldjobs/aol/src/memosys/lib/MEMOSYS/Poller'
-let g:netrw_dirhist_6='/Users/tim/src/clients/skillpop/skillpop/test/fixtures'
-let g:netrw_dirhist_7='/Users/tim/src/clients/skillpop/skillpop/test'

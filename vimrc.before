@@ -1,5 +1,0 @@
-call janus#disable_plugin('css-color')
-
-" enable project specific .vimrc
-set exrc
-set secure
