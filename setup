@@ -66,18 +66,15 @@ section "Install oh-my-zsh"
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 
-section "Install App Store apps"
-typeset -A APPS=(
-  Divvy 413857545
-  Fantastical 975937182
-  Keynote 409183694
-  MicrosoftToDo 1274495053
-  Pages 409201541
-  Slack 803453959
-  WhatsApp 1147396723
-)
+section "Set up vim plugins"
 
-for app app_id in ${(kv)APPS}; do
-  echo $app $app_id
-  install_app_store_app $app $app_id
-done
+if [[ ! -e ~/.vim/bundle/Vundle.vim ]]; then
+  step "Installing Vundle"
+  git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+  success "Vundle installed"
+else
+  skipped "Vundle already found; skipping"
+fi
+
+step "Setting up vim plugins"
+vim +PluginInstall +qall
