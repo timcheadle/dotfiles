@@ -24,92 +24,21 @@ skipped() {
 }
 
 
-#
-# Homebrew
-#
-install_brew() {
-  local brew=$1
-
-  if [[ ! $(brew list | grep $brew) ]]; then
-    step "Installing $brew"
-    brew install $brew >/dev/null
-    success "$brew installed!"
-  else
-    skipped "$brew already installed. Skipped."
-  fi
-}
-
-install_brew_cask() {
-  local cask=$1
-
-  if [[ ! $(brew cask list | grep $cask) ]]; then
-    step "Installing $cask"
-    brew cask install $cask --appdir=/Applications >/dev/null
-    success "$cask installed!"
-  else
-    skipped "$cask already installed. Skipped."
-  fi
-}
-
-install_app_store_app() {
-  local app=$1
-  local app_id=$2
-
-  if [[ ! $(mas list | grep $app_id) ]]; then
-    step "Installing $app"
-    mas install $app_id >/dev/null
-    success "$app installed!"
-  else
-    skipped "$app already installed. Skipped."
-  fi
-}
-
 section "Install brew"
-#/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+if test ! $(which brew); then
+  step "Installing brew"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+  success "brew installed!"
+else
+  skipped "brew already installed, skipping"
+fi
 
 section "Update brew"
-#brew update
+brew update
 
-section "Install all brews"
-BREWS=(
-  ansible
-  awscli
-  gh
-  gnu-tar
-  heroku
-  jq
-  mackup
-  mas
-  nmap
-  rbenv
-  redis
-  ruby-build
-  the_silver_searcher
-  vim
-  watch
-)
-
-for brew in ${BREWS[@]}; do
-  install_brew $brew
-done
-
-
-section "Install all casks"
-CASKS=(
-  1password
-  alfred
-  dropbox
-  firefox
-  iterm2
-  mailplane
-  numi
-  postgres
-  spotify
-)
-
-for cask in ${CASKS[@]}; do
-  install_brew_cask $cask
-done
+section "Install all apps from Brewfile"
+brew tap "homebrew/bundle"
+brew bundle --no-upgrade
 
 
 section "Add rbenv to .zshrc"
