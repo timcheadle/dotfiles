@@ -23,6 +23,7 @@ cask "mailplane"
 cask "numi"
 cask "postgres"
 cask "spotify"
+cask "zoomus"
 
 mas "Divvy", id: 413857545
 mas "Fantastical", id: 975937182
