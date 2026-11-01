@@ -8,7 +8,7 @@ The old setup lives on the [`archive`](../../tree/archive) branch.
 ## New Mac
 
 ```
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/timcheadle/dotfiles/master/install.sh)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/timcheadle/dotfiles/main/install.sh)"
 ```
 
 Then follow the checklist in [docs/setup.md](docs/setup.md).

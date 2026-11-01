@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Set up a Mac from scratch. Run in Terminal:
-#   bash -c "$(curl -fsSL https://raw.githubusercontent.com/timcheadle/dotfiles/master/install.sh)"
+#   bash -c "$(curl -fsSL https://raw.githubusercontent.com/timcheadle/dotfiles/main/install.sh)"
 # Safe to run again; finished steps are skipped. Next steps: docs/setup.md
 set -euo pipefail
 
