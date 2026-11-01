@@ -24,6 +24,7 @@ brew "zoxide"                   # z <name> jumps to frequent folders
 # Apps
 cask "ghostty"                  # terminal
 cask "1password"                # passwords, SSH keys
+cask "1password-cli"            # op: 1Password from the command line
 cask "alfred"                   # launcher
 cask "claude"                   # Claude Desktop
 cask "claude-code"              # Claude Code CLI

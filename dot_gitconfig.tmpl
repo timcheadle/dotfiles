@@ -38,6 +38,18 @@
 [branch]
 	sort = -committerdate
 
+{{ if eq .chezmoi.os "darwin" -}}
+# Sign commits with the 1Password SSH key (public half below)
+[user]
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAroxrryEQ6hxohtRusZ7NR3chBA+kHx59HpeFKZRS1n
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+[commit]
+	gpgsign = true
+{{- end }}
+
 # Machine-specific settings that don't belong in this repo.
 [include]
 	path = ~/.gitconfig.local

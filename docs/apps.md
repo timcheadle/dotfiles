@@ -7,6 +7,7 @@ Everything is in the [`Brewfile`](../Brewfile). Install or update with `brew bun
 | App | What it's for |
 |---|---|
 | 1Password | Passwords, SSH keys |
+| 1Password CLI (`op`) | 1Password from the command line |
 | Alfred | Launcher |
 | Claude | Claude Desktop |
 | Claude Code | Claude Code CLI |
