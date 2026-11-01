@@ -117,9 +117,3 @@ Why things are the way they are. Details of each setup live in the other docs.
 | No status hooks | Ghostty shows Claude's status itself. |
 | One personal instructions file (`agents/AGENTS.md`) shared by Claude Code and Codex | Edit once, every tool follows it. |
 | Theme: dark-ansi with darker message backgrounds | Code is coloured with the terminal's Rosé Pine palette. ANSI themes only allow the 16 terminal colours, so diffs keep their built-in look. |
-
-## Still to decide
-
-- Which work apps come from Jamf
-- Skills (none of your own yet)
-- Linux / kubetops setup
