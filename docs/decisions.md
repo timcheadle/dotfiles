@@ -105,6 +105,14 @@ Details of each setup live in the other docs; this is just the reasoning.
 | Light mode, no hot corners, screenshots on the Desktop, volume sound and startup chime on | Personal preference. The chime is the macOS default, so no admin step is needed. |
 | Alfred syncs via iCloud Drive, not Dropbox or the repo | Dropbox is being retired; iCloud is built in. Alfred data can be personal, so not in a public repo. |
 
+## New Mac setup
+
+| Decision | Why |
+|---|---|
+| One-command `install.sh`, run with `bash -c "$(curl ...)"` | A fresh Mac goes from nothing to set up. This form keeps the terminal interactive, so Homebrew's password prompt and chezmoi's questions work (`curl \| bash` breaks them). |
+| `chezmoi apply` runs `brew bundle --no-upgrade` when the Brewfile changes | Both Macs stay in sync automatically; upgrades stay a separate, deliberate `brew upgrade`. |
+| Manual checklist for 1Password, App Management, `gh auth`, Alfred | These need sign-ins or privacy approvals that can't be scripted. |
+
 ## Still to decide
 
 - More apps (old App Store list), and which work apps come from Jamf

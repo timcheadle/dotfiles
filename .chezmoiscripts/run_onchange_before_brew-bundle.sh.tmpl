@@ -1,0 +1,9 @@
+{{ if eq .chezmoi.os "darwin" -}}
+#!/usr/bin/env bash
+# Installs anything missing from the Brewfile. chezmoi re-runs this when the Brewfile changes.
+# Brewfile hash: {{ include "Brewfile" | sha256sum }}
+# Upgrades are left to `brew upgrade`, so this stays quick.
+set -euo pipefail
+eval "$(/opt/homebrew/bin/brew shellenv)"
+brew bundle install --file="{{ .chezmoi.sourceDir }}/Brewfile" --no-upgrade
+{{ end -}}

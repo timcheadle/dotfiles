@@ -5,8 +5,17 @@ Shared config for my Macs (and Linux dev shells), managed with
 
 The old setup lives on the [`archive`](../../tree/archive) branch.
 
+## New Mac
+
+```
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/timcheadle/dotfiles/master/install.sh)"
+```
+
+Then follow the checklist in [docs/setup.md](docs/setup.md).
+
 ## Docs
 
+- [Setup](docs/setup.md): new Mac setup and keeping Macs in sync
 - [Shell](docs/shell.md): zsh setup and all aliases
 - [Git](docs/git.md): git settings
 - [Apps](docs/apps.md): apps and CLI tools in the Brewfile
