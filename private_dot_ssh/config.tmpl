@@ -1,0 +1,8 @@
+# Machine-specific hosts (not in the repo). Must come before any Host block.
+Include ~/.ssh/config.local
+
+{{ if eq .chezmoi.os "darwin" -}}
+# Keys come from 1Password. Key files in ~/.ssh still work too.
+Host *
+  IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+{{- end }}

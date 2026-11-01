@@ -24,7 +24,7 @@ Details of each setup live in the other docs; this is just the reasoning.
 | `pull.rebase`, `rebase.autoStash`, `zdiff3`, `rerere`, `autoSetupRemote` | Modern defaults that remove common friction. |
 | No `fetch.prune` | Personal preference: keep remote branches until deleted on purpose. |
 | Aliases chosen from shell history | Kept only what's actually used (`gco`, `gc`, `gs`, `gpl`, `gp`, `gd`…), plus a few useful additions. `gb` is now blame; the old `gb` (branch) is `gbr`. |
-| Commit signing: later | Will use the 1Password SSH key once SSH is set up. |
+| Sign all commits with the 1Password SSH key | Verified commits on GitHub, no separate GPG key. Mac only, since it uses 1Password's signer. GitLab needs the key added there (at work). |
 
 ## Shell
 
@@ -59,10 +59,18 @@ Details of each setup live in the other docs; this is just the reasoning.
 | Slack from brew, not the App Store | Consistent with the other apps, and new Macs don't depend on an App Store sign-in. Cost: one admin step to remove the App Store copy. |
 | Rectangle Pro, not Rectangle | The paid version is what's actually used. |
 
+## SSH
+
+| Decision | Why |
+|---|---|
+| SSH keys live in 1Password (agent), new ed25519 key for GitHub | No key files on disk, Touch ID to use, same keys on every Mac. |
+| Old key files kept for now | It's not yet known which servers use them. Import into 1Password or retire later. |
+| Server hosts in `~/.ssh/config.local`, not the repo | The repo is public; host names and addresses are private. |
+| 1Password agent line is Mac-only | Linux machines don't have it; the line would break ssh there. |
+
 ## Still to decide
 
 - More apps (old App Store list), and which work apps come from Jamf
-- SSH keys via 1Password, and commit signing
 - Neovim config, tmux, fonts
 - macOS settings script
 - AI agent config (AGENTS.md, Claude settings, skills)
