@@ -16,6 +16,12 @@
 	diffFilter = delta --color-only
 [delta]
 	navigate = true  # n/N jump between files
+	# Green/red text on light line backgrounds that sit well on Rosé Pine Moon
+	syntax-theme = ansi
+	plus-style = "#a6da95" "#263838"
+	plus-emph-style = "#a6da95" bold "#34574a"
+	minus-style = "#eb6f92" "#382536"
+	minus-emph-style = "#eb6f92" bold "#5a2f47"
 
 [init]
 	defaultBranch = main
@@ -23,6 +29,8 @@
 	autoSetupRemote = true
 [pull]
 	rebase = true
+[rebase]
+	autoStash = true
 [merge]
 	conflictStyle = zdiff3
 [rerere]

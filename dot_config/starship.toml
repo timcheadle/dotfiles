@@ -1,0 +1,49 @@
+# Two-line prompt. Only the modules listed in `format` are shown,
+# so slow ones (language versions, cloud) stay off.
+"$schema" = "https://starship.rs/config-schema.json"
+
+add_newline = true
+palette = "rose-pine-moon"
+format = "$time$directory$git_branch$git_status$cmd_duration$line_break$character"
+
+[time]
+disabled = false
+style = "muted"
+format = "[$time]($style) "
+time_format = "%H:%M"
+
+[directory]
+style = "bold foam"
+truncation_length = 4
+truncate_to_repo = false
+
+[cmd_duration]
+style = "gold"
+min_time = 2_000  # only show for commands that take 2s or more
+format = "took [$duration]($style) "
+
+[git_branch]
+style = "bold iris"
+
+[git_status]
+style = "love"
+
+# ❯ changes colour when the last command failed
+[character]
+success_symbol = "[❯](bold pine)"
+error_symbol = "[❯](bold love)"
+
+# Rosé Pine Moon: https://rosepinetheme.com/palette
+[palettes.rose-pine-moon]
+base = "#232136"
+surface = "#2a273f"
+overlay = "#393552"
+muted = "#6e6a86"
+subtle = "#908caa"
+text = "#e0def4"
+love = "#eb6f92"
+gold = "#f6c177"
+rose = "#ea9a97"
+pine = "#3e8fb0"
+foam = "#9ccfd8"
+iris = "#c4a7e7"

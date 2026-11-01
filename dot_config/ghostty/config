@@ -1,0 +1,2 @@
+# Ghostty terminal. All options: ghostty +show-config --default --docs
+theme = Rose Pine Moon
