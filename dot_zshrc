@@ -36,9 +36,8 @@ eval "$(mise activate zsh)"
 
 source ~/.config/zsh/aliases.zsh
 
-# Plugins (syntax highlighting must load last)
+# Plugins
 source "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
-source "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 # Machine-specific settings that don't belong in the repo
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local

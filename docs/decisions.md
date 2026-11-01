@@ -31,13 +31,14 @@ Details of each setup live in the other docs; this is just the reasoning.
 | Decision | Why |
 |---|---|
 | Plain zsh, no oh-my-zsh | Faster and easier to understand; only the needed bits. |
-| Plugins via brew, no plugin manager | Only 2 real plugins (autosuggestions, syntax highlighting); one `brew upgrade` updates everything. Switch to antidote if the list grows past ~5. |
+| Plugins via brew, no plugin manager | Only 1 real plugin (autosuggestions); one `brew upgrade` updates everything. Switch to antidote if the list grows past ~5. |
 | starship, two-line prompt | Time, folder, branch + status, duration. Only listed modules are shown, so it stays fast (~35ms). Language and cloud modules are off for speed. |
 | `❯` turns red on failure, no exit code shown | Personal preference: subtle is enough. |
 | Per-tab history | Each tab keeps its own history until it closes; commands are still saved right away. |
 | Miller (`mlr`) replaces csvfix and the Ruby `csvhead` script | Actively maintained and does the same jobs; `csvhead` is now a shell function. |
 | mise for Ruby and Node, no global versions | Replaces rbenv/asdf: faster, reads old `.ruby-version` / `.nvmrc` files. Existing projects use older versions, so global "latest" wouldn't help. |
 | uv for Python | The modern standard for Python; avoids mise and uv both managing Python. |
+| No syntax highlighting plugin | Colouring commands as you type was distracting, even toned down. |
 | Built-in `ls`/`grep` colours, not eza/bat | Keep it simple and safe on Linux. eza/bat can be added later, aliased only if installed. |
 | Dropped: Ansible, AWS, Ruby/bundler plugins, postgres@10, themekit, `~/.bin` | No longer used. |
 
@@ -46,6 +47,7 @@ Details of each setup live in the other docs; this is just the reasoning.
 | Decision | Why |
 |---|---|
 | Rosé Pine Moon everywhere | Personal preference. Set in each tool; anything using the terminal's 16 colours follows automatically. See [theme.md](theme.md). |
+| JetBrains Mono, ligatures off | Compared JetBrains Mono, Hack and Input. Liked JetBrains Mono's line height and letterforms (Hack's "i" looked odd), but not operator ligatures, so those are off. Built into Ghostty, so nothing to install. |
 | Ghostty as the terminal (trying it out) | Modern and fast, with the theme and Nerd Font icons built in. iTerm2 still works with the same prompt. |
 
 ## Apps and tools
@@ -68,10 +70,20 @@ Details of each setup live in the other docs; this is just the reasoning.
 | Server hosts in `~/.ssh/config.local`, not the repo | The repo is public; host names and addresses are private. |
 | 1Password agent line is Mac-only | Linux machines don't have it; the line would break ssh there. |
 
+## tmux
+
+| Decision | Why |
+|---|---|
+| tmux, not Zellij | Mainly for keeping sessions alive (e.g. on kubetops). tmux is the standard and is everywhere. |
+| Default prefix `Ctrl-b` | Matches guides online. |
+| Few, guessable keys (`\|`, `-`, arrows, `z`, `c`, `x`) and the mouse on | Easier to build muscle memory. The status bar shows when the prefix is active. |
+| No `Ctrl-1`..`9` window switching | Those keys are used by macOS. |
+| No plugin manager | The config is small; Rosé Pine colours are set directly. |
+
 ## Still to decide
 
 - More apps (old App Store list), and which work apps come from Jamf
-- Neovim config, tmux, fonts
+- Neovim config
 - macOS settings script
 - AI agent config (AGENTS.md, Claude settings, skills)
 - Linux / kubetops setup

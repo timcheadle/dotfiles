@@ -17,6 +17,10 @@ Used everywhere. Palette: https://rosepinetheme.com/palette
 | foam | `#9ccfd8` | Prompt folder |
 | iris | `#c4a7e7` | Git branch |
 
+## Font
+
+Ghostty's built-in **JetBrains Mono**, with ligatures turned off (`font-feature = -calt`, `-liga`, `-dlig`) so `!=` and `=>` stay as typed. Icons come from Ghostty's built-in symbols, so nothing extra is installed.
+
 ## Where it's set
 
 | Tool | How | File |
@@ -25,6 +29,7 @@ Used everywhere. Palette: https://rosepinetheme.com/palette
 | starship | `palette = "rose-pine-moon"` | [`dot_config/starship.toml`](../dot_config/starship.toml) |
 | fzf | `FZF_DEFAULT_OPTS` colours | [`dot_zshrc`](../dot_zshrc) |
 | delta | Code colours follow the terminal (`syntax-theme = ansi`). Added lines: green text `#a6da95` on `#263838` (changed words bold on `#34574a`). Removed lines: love `#eb6f92` on `#382536` (changed words bold on `#5a2f47`). The green is outside the palette, chosen to sit well on it. | [`dot_gitconfig.tmpl`](../dot_gitconfig.tmpl) |
+| tmux | Status bar, borders and messages set directly. Session name is iris, or gold while `Ctrl-b` is waiting; current window is rose. | [`dot_config/tmux/tmux.conf`](../dot_config/tmux/tmux.conf) |
 | `ls`, `grep`, zsh plugins | Follow the terminal's colours automatically | |
 
-Still to do: nvim, tmux. Claude Code uses its built-in dark theme (user preference).
+Still to do: nvim. Claude Code uses its built-in dark theme (user preference).

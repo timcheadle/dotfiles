@@ -11,13 +11,13 @@ brew "mas"                      # App Store apps from the Brewfile
 brew "nmap"                     # network scanner
 brew "watch"                    # rerun a command every 2s
 brew "neovim"                   # editor
+brew "tmux"                     # keep terminal sessions alive, split panes
 brew "mole"                     # Mac cleanup
 brew "rhettbull/osxphotos/osxphotos"  # export and query Apple Photos
 
 # Shell
 brew "starship"                 # prompt
 brew "zsh-autosuggestions"      # grey suggestions from history
-brew "zsh-syntax-highlighting"  # green/red command colouring
 brew "fzf"                      # fuzzy search: Ctrl-R history, Ctrl-T files
 brew "zoxide"                   # z <name> jumps to frequent folders
 
