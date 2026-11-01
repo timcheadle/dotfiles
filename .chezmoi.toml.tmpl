@@ -1,0 +1,12 @@
+{{- /* Asked once per machine; answers are saved locally, never in this repo. */ -}}
+{{- $name := promptStringOnce . "name" "Your full name" -}}
+{{- $personalEmail := promptStringOnce . "personalEmail" "Personal (GitHub) email" -}}
+{{- $workEmail := promptStringOnce . "workEmail" "Work (GitLab) email" -}}
+
+# Plain files become symlinks into the repo, so edits in ~ are edits here.
+mode = "symlink"
+
+[data]
+  name = {{ $name | quote }}
+  personalEmail = {{ $personalEmail | quote }}
+  workEmail = {{ $workEmail | quote }}

@@ -1,0 +1,35 @@
+[user]
+	name = {{ .name }}
+	email = {{ .personalEmail }}
+
+# GitLab remotes (ssh or https) use the work email.
+[includeIf "hasconfig:remote.*.url:*gitlab*/**"]
+	path = ~/.config/git/work.gitconfig
+[includeIf "hasconfig:remote.*.url:https://*gitlab*/**"]
+	path = ~/.config/git/work.gitconfig
+[includeIf "hasconfig:remote.*.url:ssh://*gitlab*/**"]
+	path = ~/.config/git/work.gitconfig
+
+[core]
+	pager = delta
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true  # n/N jump between files
+
+[init]
+	defaultBranch = main
+[push]
+	autoSetupRemote = true
+[pull]
+	rebase = true
+[merge]
+	conflictStyle = zdiff3
+[rerere]
+	enabled = true
+[branch]
+	sort = -committerdate
+
+# Machine-specific settings that don't belong in this repo.
+[include]
+	path = ~/.gitconfig.local
