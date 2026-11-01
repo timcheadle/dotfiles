@@ -1,0 +1,9 @@
+{
+  "name": "Dark ANSI (darker messages)",
+  "base": "dark-ansi",
+  "overrides": {
+    "userMessageBackground": "ansi:black",
+    "bashMessageBackgroundColor": "ansi:black",
+    "memoryBackgroundColor": "ansi:black"
+  }
+}
