@@ -113,8 +113,17 @@ Details of each setup live in the other docs; this is just the reasoning.
 | `chezmoi apply` runs `brew bundle --no-upgrade` when the Brewfile changes | Both Macs stay in sync automatically; upgrades stay a separate, deliberate `brew upgrade`. |
 | Manual checklist for 1Password, App Management, `gh auth`, Alfred | These need sign-ins or privacy approvals that can't be scripted. |
 
+## Claude Code
+
+| Decision | Why |
+|---|---|
+| Shared `settings.json` in the repo | Both Macs get the same model, thinking, display and theme. |
+| Dropped the iTerm2 status hooks | Only worked in iTerm2; Ghostty shows status itself. |
+| Dropped the old Sonnet effort setting | Out of date, and Opus is the default. |
+| Theme: dark-ansi with darker message backgrounds | Tried Rosé Pine, soft-diff and light-mode variants. ANSI themes round custom colours to the 16 terminal colours, and code colours are fixed per theme family, so nothing better was possible. Light grey message backgrounds were the one thing worth fixing. |
+
 ## Still to decide
 
 - More apps (old App Store list), and which work apps come from Jamf
-- AI agent config (AGENTS.md, Claude settings, skills)
+- Personal instructions file for AI tools (global CLAUDE.md / AGENTS.md), skills
 - Linux / kubetops setup

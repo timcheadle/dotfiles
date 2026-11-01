@@ -30,6 +30,8 @@ Ghostty's built-in **JetBrains Mono**, with ligatures turned off (`font-feature 
 | fzf | `FZF_DEFAULT_OPTS` colours | [`dot_zshrc`](../dot_zshrc) |
 | delta | Code colours follow the terminal (`syntax-theme = ansi`). Added lines: green text `#a6da95` on `#263838` (changed words bold on `#34574a`). Removed lines: love `#eb6f92` on `#382536` (changed words bold on `#5a2f47`). The green is outside the palette, chosen to sit well on it. | [`dot_gitconfig.tmpl`](../dot_gitconfig.tmpl) |
 | tmux | Status bar, borders and messages set directly. Session name is iris, or gold while `Ctrl-b` is waiting; current window is rose. | [`dot_config/tmux/tmux.conf`](../dot_config/tmux/tmux.conf) |
+| Neovim | `rose-pine` plugin, moon variant | [`nvim/lua/plugins/colorscheme.lua`](../nvim/lua/plugins/colorscheme.lua) |
+| Claude Code | dark-ansi (terminal colours), messages on `ansi:black` | [`dot_claude/themes/dark-ansi.json`](../dot_claude/themes/dark-ansi.json) |
 | `ls`, `grep`, zsh plugins | Follow the terminal's colours automatically | |
 
-Still to do: nvim. Claude Code uses its built-in dark theme (user preference).
+Neovim uses the rose-pine plugin (moon variant). Claude Code uses dark-ansi, which takes its colours from the terminal; see [claude.md](claude-code.md).
