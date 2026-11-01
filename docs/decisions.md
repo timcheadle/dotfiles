@@ -120,10 +120,11 @@ Details of each setup live in the other docs; this is just the reasoning.
 | Shared `settings.json` in the repo | Both Macs get the same model, thinking, display and theme. |
 | Dropped the iTerm2 status hooks | Only worked in iTerm2; Ghostty shows status itself. |
 | Dropped the old Sonnet effort setting | Out of date, and Opus is the default. |
+| One personal instructions file (`agents/AGENTS.md`) shared by Claude Code and Codex | Edit once, every tool follows it. Contains only preferences actually stated: short answers, one question at a time, explain admin steps. |
 | Theme: dark-ansi with darker message backgrounds | Tried Rosé Pine, soft-diff and light-mode variants. ANSI themes round custom colours to the 16 terminal colours, and code colours are fixed per theme family, so nothing better was possible. Light grey message backgrounds were the one thing worth fixing. |
 
 ## Still to decide
 
 - More apps (old App Store list), and which work apps come from Jamf
-- Personal instructions file for AI tools (global CLAUDE.md / AGENTS.md), skills
+- Skills (none of your own yet)
 - Linux / kubetops setup

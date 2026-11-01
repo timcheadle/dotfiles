@@ -12,6 +12,18 @@ Settings: [`dot_claude/settings.json`](../dot_claude/settings.json), linked as `
 
 No hooks: Ghostty shows Claude's status (working, waiting) by itself.
 
+## Personal instructions
+
+[`agents/AGENTS.md`](../agents/AGENTS.md) is shared by every AI tool. Edit it once:
+
+| Tool | Where it's linked |
+|---|---|
+| Claude Code | `~/.claude/CLAUDE.md` |
+| Codex | `~/.codex/AGENTS.md` |
+| Cursor | Not a file: paste it into Cursor Settings → Rules |
+
+Only general preferences go here. Project-specific notes belong in that project's own `AGENTS.md` / `CLAUDE.md`.
+
 ## Theme
 
 [`dot_claude/themes/dark-ansi.json`](../dot_claude/themes/dark-ansi.json): built-in **Dark mode (ANSI colors only)**, with your messages on the terminal's darkest grey (`ansi:black`) instead of a light grey. Pick it with `/theme`.
