@@ -17,6 +17,7 @@ brew "lazygit"                  # git screen (used in nvim)
 brew "tree-sitter-cli"          # builds syntax highlighting for nvim
 brew "tmux"                     # keep terminal sessions alive, split panes
 brew "mole"                     # Mac cleanup
+brew "dockutil"                 # set pinned Dock apps
 brew "rhettbull/osxphotos/osxphotos"  # export and query Apple Photos
 
 # Shell

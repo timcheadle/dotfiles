@@ -15,6 +15,7 @@ The old setup lives on the [`archive`](../../tree/archive) branch.
 - [Ghostty](docs/ghostty.md): terminal settings
 - [tmux](docs/tmux.md): sessions and keys
 - [Theme](docs/theme.md): Rosé Pine Moon colours and where they are set
+- [macOS](docs/macos.md): system settings, Dock, shortcuts, Alfred
 - [Decisions](docs/decisions.md): what was chosen and why
 
 ## Machine-specific stuff

@@ -92,9 +92,21 @@ Details of each setup live in the other docs; this is just the reasoning.
 | Command line at the bottom | Classic vim habit; the centred pop-up felt odd. |
 | Removed the leftover macOS 27 beta SDK | It broke all compiling (syntax parsers, gems, brew builds). Fixed properly rather than worked around. |
 
+## macOS
+
+| Decision | Why |
+|---|---|
+| One settings script, run by chezmoi on change | Both Macs match; no admin needed. |
+| Keep existing trackpad, mouse and Dock look | Already set how they're liked; recorded so new Macs match. |
+| Dock: no delay, no recent apps; pinned apps managed with `dockutil` | Faster, tidier, and a new Mac gets the same Dock. iTerm replaced by Ghostty. Serato stays in the Dock but not the Brewfile. |
+| Keyboard: no autocorrect, smart quotes/dashes or double-space full stop | They break code and commands. |
+| Finder: keep the extension-change warning | Personal preference. |
+| Spotlight on Option+Space, Alfred on Cmd+Space; Ctrl+1–9 and Ctrl+arrows for desktops | Existing habits, now recorded. |
+| Light mode, no hot corners, screenshots on the Desktop, volume sound and startup chime on | Personal preference. The chime is the macOS default, so no admin step is needed. |
+| Alfred syncs via iCloud Drive, not Dropbox or the repo | Dropbox is being retired; iCloud is built in. Alfred data can be personal, so not in a public repo. |
+
 ## Still to decide
 
 - More apps (old App Store list), and which work apps come from Jamf
-- macOS settings script
 - AI agent config (AGENTS.md, Claude settings, skills)
 - Linux / kubetops setup
