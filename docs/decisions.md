@@ -82,10 +82,19 @@ Details of each setup live in the other docs; this is just the reasoning.
 | No `Ctrl-1`..`9` window switching | Those keys are used by macOS. |
 | No plugin manager | The config is small; Rosé Pine colours are set directly. |
 
+## Neovim
+
+| Decision | Why |
+|---|---|
+| LazyVim (trial) | Works well out of the box with a key menu, so it's easy to discover. Might turn out to be too much; we'll see. |
+| Whole `~/.config/nvim` linked to `nvim/` in the repo | Neovim writes its plugin lock file there, so it gets saved in the repo too. |
+| Keep the starter's Apache LICENSE in `nvim/` | It covers the copied starter files; harmless. |
+| Command line at the bottom | Classic vim habit; the centred pop-up felt odd. |
+| Removed the leftover macOS 27 beta SDK | It broke all compiling (syntax parsers, gems, brew builds). Fixed properly rather than worked around. |
+
 ## Still to decide
 
 - More apps (old App Store list), and which work apps come from Jamf
-- Neovim config
 - macOS settings script
 - AI agent config (AGENTS.md, Claude settings, skills)
 - Linux / kubetops setup
