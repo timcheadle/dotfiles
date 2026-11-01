@@ -28,7 +28,7 @@ Only general preferences go here. Project-specific notes belong in that project'
 
 [`dot_claude/themes/dark-ansi.json`](../dot_claude/themes/dark-ansi.json): built-in **Dark mode (ANSI colors only)**, with your messages on the terminal's darkest grey (`ansi:black`) instead of a light grey. Pick it with `/theme`.
 
-What we learned while trying other themes:
+How Claude Code themes work:
 
 | Limit | Effect |
 |---|---|
