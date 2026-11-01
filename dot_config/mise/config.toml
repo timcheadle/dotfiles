@@ -1,0 +1,4 @@
+# No global language versions: each project pins its own.
+[settings]
+# Also read older version files (.ruby-version, .nvmrc). Python is handled by uv.
+idiomatic_version_file_enable_tools = ["ruby", "node"]

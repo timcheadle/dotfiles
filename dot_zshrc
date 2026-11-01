@@ -1,0 +1,44 @@
+# Homebrew (sets HOMEBREW_PREFIX and PATH)
+if [[ -x /opt/homebrew/bin/brew ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
+# History: each tab keeps its own until it closes, but every command is saved right away
+HISTFILE=~/.zsh_history
+HISTSIZE=100000
+SAVEHIST=100000
+setopt INC_APPEND_HISTORY NO_SHARE_HISTORY EXTENDED_HISTORY
+setopt HIST_IGNORE_DUPS HIST_FIND_NO_DUPS HIST_IGNORE_SPACE HIST_REDUCE_BLANKS
+
+# Completion (case-insensitive, arrow-key menu)
+fpath=("$HOMEBREW_PREFIX/share/zsh/site-functions" $fpath)
+autoload -Uz compinit && compinit
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' menu select
+
+# Colours for ls and grep (macOS uses CLICOLOR; Linux ls needs --color)
+export CLICOLOR=1
+[[ "$OSTYPE" == linux* ]] && alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+
+# Tools
+# fzf colours: Rosé Pine Moon (https://github.com/rose-pine/fzf)
+export FZF_DEFAULT_OPTS="
+  --color=fg:#908caa,bg:#232136,hl:#ea9a97
+  --color=fg+:#e0def4,bg+:#393552,hl+:#ea9a97
+  --color=border:#44415a,header:#3e8fb0,gutter:#232136
+  --color=spinner:#f6c177,info:#9ccfd8
+  --color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa"
+eval "$(fzf --zsh)"
+eval "$(zoxide init zsh)"
+eval "$(starship init zsh)"
+eval "$(mise activate zsh)"
+
+source ~/.config/zsh/aliases.zsh
+
+# Plugins (syntax highlighting must load last)
+source "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+source "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+
+# Machine-specific settings that don't belong in the repo
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
