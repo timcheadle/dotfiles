@@ -36,6 +36,6 @@ Matches and replacements preview live as you type; Esc cancels.
 
 ## Troubleshooting
 
-- **Lots of "Failed to compile parser" errors on start**: the Mac's developer tools can't build. On 2026-11-01 this was a leftover macOS 27 beta SDK in `/Library/Developer/CommandLineTools/SDKs/`; removing it (`sudo rm -rf .../MacOSX27*.sdk`) fixed it. Check with `xcrun --show-sdk-path`.
+- **"Failed to compile parser" errors on start**: the Mac's developer tools can't build. Check `xcrun --show-sdk-path`; a beta SDK newer than macOS (e.g. `MacOSX27*.sdk` in `/Library/Developer/CommandLineTools/SDKs/`) can break the linker. Remove it with `sudo rm -rf` (needs admin).
 - `:checkhealth` reports anything else missing.
 - `:Lazy` shows plugins; `:Lazy sync` updates them (and the lock file).
