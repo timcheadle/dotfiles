@@ -107,6 +107,7 @@ Why things are the way they are. Details of each setup live in the other docs.
 |---|---|
 | One-command `install.sh`, run with `bash -c "$(curl ...)"` | A fresh Mac goes from nothing to set up. This form keeps the terminal interactive, so Homebrew's password prompt and chezmoi's questions work (`curl \| bash` breaks them). |
 | `chezmoi apply` runs `brew bundle --no-upgrade` when the Brewfile changes | Both Macs stay in sync automatically; upgrades stay a separate, deliberate `brew upgrade`. |
+| Installer moves an existing `~/.zshrc` to `~/.zshrc.local` | Machines with their own shell setup (like the work Mac) keep it, and chezmoi doesn't stop to ask about overwriting. If `~/.zshrc.local` already exists, the old file is saved as `~/.zshrc.pre-dotfiles` so nothing is lost. |
 | Manual checklist for 1Password, App Management, `gh auth`, Alfred | These need sign-ins or privacy approvals that can't be scripted. |
 
 ## Claude Code

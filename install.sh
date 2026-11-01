@@ -43,6 +43,21 @@ if [[ ! -e "$HOME/.local/share/chezmoi" ]]; then
   ln -s "$DOTFILES" "$HOME/.local/share/chezmoi"
 fi
 
+step "Existing ~/.zshrc"
+# Keep an existing zshrc as ~/.zshrc.local (loaded by the repo's .zshrc),
+# so chezmoi can install its own without asking.
+if [[ -f "$HOME/.zshrc" && ! -L "$HOME/.zshrc" ]]; then
+  if [[ ! -e "$HOME/.zshrc.local" ]]; then
+    mv "$HOME/.zshrc" "$HOME/.zshrc.local"
+    echo "Moved to ~/.zshrc.local. Trim anything that clashes (oh-my-zsh, prompt)."
+  else
+    mv "$HOME/.zshrc" "$HOME/.zshrc.pre-dotfiles"
+    echo "~/.zshrc.local already exists; old file saved as ~/.zshrc.pre-dotfiles."
+  fi
+else
+  echo "None to move."
+fi
+
 step "Apply: apps (brew bundle), configs, macOS settings"
 # First run asks for your name and emails; they're stored locally, not in the repo.
 chezmoi init --apply
