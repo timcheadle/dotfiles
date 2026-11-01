@@ -9,7 +9,6 @@ Everything is installed with brew (see [`Brewfile`](../Brewfile)).
 |---|---|---|
 | starship | Prompt | Automatic |
 | zsh-autosuggestions | Grey suggestion from history as you type | `→` accepts it |
-| zsh-syntax-highlighting | Commands turn green if valid, red if not | Automatic |
 | fzf | Fuzzy search | `Ctrl-R` history, `Ctrl-T` files, `Alt-C` cd into folder |
 | zoxide | Jump to folders you use often | `z proj` jumps to the best match for "proj" |
 | mise | Ruby and Node versions per project | In a project, `mise install` installs what it asks for |

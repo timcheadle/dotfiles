@@ -33,6 +33,7 @@ Everything is in the [`Brewfile`](../Brewfile). Install or update with `brew bun
 | `nmap` | Network scanner |
 | `watch` | Rerun a command every 2s |
 | `nvim` | Editor |
+| `tmux` | Keep terminal sessions alive, split panes ([tmux.md](tmux.md)) |
 | `mole` | Mac cleanup |
 | `osxphotos` | Export and query Apple Photos (from the `rhettbull/osxphotos` tap) |
 
