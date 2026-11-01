@@ -9,6 +9,7 @@ The old setup lives on the [`archive`](../../tree/archive) branch.
 
 - [Shell](docs/shell.md): zsh setup and all aliases
 - [Git](docs/git.md): git settings
+- [Apps](docs/apps.md): apps and CLI tools in the Brewfile
 - [Theme](docs/theme.md): Rosé Pine Moon colours and where they are set
 - [Decisions](docs/decisions.md): what was chosen and why
 

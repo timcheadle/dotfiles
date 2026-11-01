@@ -48,11 +48,22 @@ Details of each setup live in the other docs; this is just the reasoning.
 | Rosé Pine Moon everywhere | Personal preference. Set in each tool; anything using the terminal's 16 colours follows automatically. See [theme.md](theme.md). |
 | Ghostty as the terminal (trying it out) | Modern and fast, with the theme and Nerd Font icons built in. iTerm2 still works with the same prompt. |
 
+## Apps and tools
+
+| Decision | Why |
+|---|---|
+| Kept from old Brewfile: `gh`, `jq`, `mas`, `nmap`, `watch` | Still used. `mas` lets the Brewfile install App Store apps. |
+| Dropped: ansible, awscli, gnu-tar, heroku, redis, rbenv, ruby-build, mackup, the_silver_searcher | Not used anymore, or replaced (mise, ripgrep, chezmoi). Per-project services like redis get added when a project needs them. |
+| Neovim instead of vim | Switching to nvim overall. Its config is still to do. |
+| Apps installed with brew, including ones first installed by hand (adopted) | One list, one update command, and a new Mac gets everything. |
+| Slack from brew, not the App Store | Consistent with the other apps, and new Macs don't depend on an App Store sign-in. Cost: one admin step to remove the App Store copy. |
+| Rectangle Pro, not Rectangle | The paid version is what's actually used. |
+
 ## Still to decide
 
-- Apps (Brewfile), including which work apps come from Jamf
+- More apps (old App Store list), and which work apps come from Jamf
 - SSH keys via 1Password, and commit signing
-- Editor (vim or Neovim), tmux, fonts
+- Neovim config, tmux, fonts
 - macOS settings script
 - AI agent config (AGENTS.md, Claude settings, skills)
 - Linux / kubetops setup
