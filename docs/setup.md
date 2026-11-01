@@ -5,7 +5,7 @@
 In Terminal (the built-in one is fine):
 
 ```
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/timcheadle/dotfiles/master/install.sh)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/timcheadle/dotfiles/main/install.sh)"
 ```
 
 | Step | What happens | Admin? |
