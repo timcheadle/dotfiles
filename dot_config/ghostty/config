@@ -5,3 +5,12 @@ theme = Rose Pine Moon
 font-feature = -calt
 font-feature = -liga
 font-feature = -dlig
+
+# Window: a little breathing room, subtly see-through with blur
+window-padding-x = 10
+window-padding-y = 8
+window-padding-balance = true
+background-opacity = 0.95
+background-blur = 20
+# Coloured backgrounds (diffs, tmux bar) are see-through too
+background-opacity-cells = true

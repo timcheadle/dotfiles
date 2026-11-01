@@ -49,6 +49,8 @@ Details of each setup live in the other docs; this is just the reasoning.
 | Rosé Pine Moon everywhere | Personal preference. Set in each tool; anything using the terminal's 16 colours follows automatically. See [theme.md](theme.md). |
 | JetBrains Mono, ligatures off | Compared JetBrains Mono, Hack and Input. Liked JetBrains Mono's line height and letterforms (Hack's "i" looked odd), but not operator ligatures, so those are off. Built into Ghostty, so nothing to install. |
 | Ghostty as the terminal (trying it out) | Modern and fast, with the theme and Nerd Font icons built in. iTerm2 still works with the same prompt. |
+| No Ghostty quick terminal (drop-down) | Not needed; Alfred covers quick launching. |
+| Ghostty: subtle transparency (0.95, blur 20), extra padding | kunchenguid's 0.8 / 50 was far too see-through. Coloured backgrounds are made see-through too so diffs match. |
 
 ## Apps and tools
 
