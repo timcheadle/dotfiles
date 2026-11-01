@@ -13,6 +13,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/timcheadle/dotfiles/main
 | Homebrew | Installs Homebrew and Apple's developer tools | **Yes**: asks for your password once. On the work Mac, use a Jamf admin window. |
 | chezmoi | `brew install chezmoi` | No |
 | Repo | Clones to `~/src/dotfiles`, links `~/.local/share/chezmoi` to it | No |
+| Existing `~/.zshrc` | Moved to `~/.zshrc.local`, which the new `.zshrc` loads at the end. If `~/.zshrc.local` already exists, it's saved as `~/.zshrc.pre-dotfiles` instead. | No |
 | Questions | Name, personal email, work email (stored in `~/.config/chezmoi/chezmoi.toml`, never in the repo) | No |
 | Apps and tools | `brew bundle` installs everything in the [`Brewfile`](../Brewfile) | A few apps may ask for your password |
 | Configs | zsh, git, ssh, tmux, Ghostty, Neovim, starship, mise | No |
@@ -28,7 +29,7 @@ The installer is safe to run again; finished steps are skipped.
 4. **Alfred**: wait for iCloud Drive to download the `Alfred` folder, then run `chezmoi apply` (or set it in Alfred Settings → Advanced).
 5. **Log out and back in** so keyboard settings take effect.
 6. **SSH hosts**: recreate `~/.ssh/config.local` if you need old servers (it's not in the repo).
-7. **Work Mac**: put work-only things in `~/.zshrc.local`, `~/.gitconfig.local`, and add the SSH key to GitLab.
+7. **Work Mac**: put work-only things in `~/.zshrc.local`, `~/.gitconfig.local`, and add the SSH key to GitLab. If the old `.zshrc` was moved to `~/.zshrc.local`, remove anything that clashes with the repo setup (oh-my-zsh, another prompt), since it loads last and wins.
 
 ## Keeping Macs in sync
 
