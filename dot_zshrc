@@ -16,6 +16,9 @@ autoload -Uz compinit && compinit
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' menu select
 
+# Editor (used by git commit and others)
+export EDITOR=nvim VISUAL=nvim
+
 # Colours for ls and grep (macOS uses CLICOLOR; Linux ls needs --color)
 export CLICOLOR=1
 [[ "$OSTYPE" == linux* ]] && alias ls='ls --color=auto'

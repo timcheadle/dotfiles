@@ -77,6 +77,14 @@ Tab completion is case-insensitive, and pressing Tab twice opens a menu you can 
 
 Defined in [`dot_config/zsh/aliases.zsh`](../dot_config/zsh/aliases.zsh).
 
+### Editor
+
+| Alias | Command |
+|---|---|
+| `vi`, `vim` | `nvim` (only if Neovim is installed) |
+
+`EDITOR` and `VISUAL` are `nvim`, so git commit messages open in Neovim.
+
 ### Git
 
 | Alias | Command | Why |

@@ -1,3 +1,8 @@
+# editor: vi and vim open Neovim (only if it is installed)
+if (( $+commands[nvim] )); then
+  alias vi=nvim vim=nvim
+fi
+
 # git
 alias gs='git status -sb'
 alias gp='git push'

@@ -11,6 +11,10 @@ brew "mas"                      # App Store apps from the Brewfile
 brew "nmap"                     # network scanner
 brew "watch"                    # rerun a command every 2s
 brew "neovim"                   # editor
+brew "ripgrep"                  # rg: fast text search
+brew "fd"                       # fast file finder
+brew "lazygit"                  # git screen (used in nvim)
+brew "tree-sitter-cli"          # builds syntax highlighting for nvim
 brew "tmux"                     # keep terminal sessions alive, split panes
 brew "mole"                     # Mac cleanup
 brew "rhettbull/osxphotos/osxphotos"  # export and query Apple Photos
