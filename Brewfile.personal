@@ -1,0 +1,3 @@
+# Personal Mac only, on top of the Brewfile.
+tap "rhettbull/osxphotos"
+brew "rhettbull/osxphotos/osxphotos"  # export and query Apple Photos

@@ -9,7 +9,7 @@ Why things are the way they are. Details of each setup live in the other docs.
 | **chezmoi + Homebrew**, no Nix | Both Macs are set up the same way. The work Mac (Jamf) only allows 5-minute admin windows, and nix-darwin needs admin on every change. chezmoi needs no admin; brew handles apps and tools. |
 | **Mac first**, Linux (kubetops) later | The Mac is the daily machine. Configs are plain files so they can be reused on Linux. |
 | **Repo is shared stuff only** | Work and personal Macs are nearly identical. Work-specific things go in local files the repo never touches (`~/.zshrc.local`, `~/.gitconfig.local`, `~/.Brewfile.local`), which keeps a public repo safe. |
-| **No personal info in the repo** | The repo is public. Name and emails are asked once per machine by chezmoi and stored in `~/.config/chezmoi/chezmoi.toml`. |
+| **No personal info in the repo** | The repo is public. Work or personal Mac, name and git email are asked once per machine by chezmoi and stored in `~/.config/chezmoi/chezmoi.toml`. |
 | **chezmoi symlink mode**, repo at `~/src/dotfiles` | Editing a config in `~` edits the repo directly. `~/.local/share/chezmoi` links to the repo so it's easy to find. Templated files (`.tmpl`) are copied and need `chezmoi apply`. |
 | **No Dropbox or Mackup** | Everything lives in the repo or in each app's own sync. |
 | **Default branch is `main`** | Modern default; matches `init.defaultBranch = main`. The pre-2020 setup is on the `archive` branch. |
@@ -18,7 +18,7 @@ Why things are the way they are. Details of each setup live in the other docs.
 
 | Decision | Why |
 |---|---|
-| Email picked by remote (GitLab = work) | Works on both Macs with no "which machine is this" setting. |
+| One git email per Mac, set by the work/personal question | Simple: the work Mac never needs the personal email, and the other way round. |
 | delta for diffs | Readable, syntax-highlighted diffs. |
 | `pull.rebase`, `rebase.autoStash`, `zdiff3`, `rerere`, `autoSetupRemote` | Modern defaults that remove common friction. |
 | No `fetch.prune` | Keep remote branches until deleted on purpose. |
@@ -54,6 +54,7 @@ Why things are the way they are. Details of each setup live in the other docs.
 
 | Decision | Why |
 |---|---|
+| Personal-only apps in `Brewfile.personal` (e.g. osxphotos) | The work Mac doesn't need them; the work/personal question picks which files run. |
 | Every app and tool in the Brewfile, including ones installed by hand (adopted) | One list, one update command, and a new Mac gets everything. |
 | Slack from brew, not the App Store | Consistent with the other apps; new Macs don't depend on an App Store sign-in. |
 | Rectangle Pro | The paid version is the one in use. |
@@ -108,6 +109,7 @@ Why things are the way they are. Details of each setup live in the other docs.
 | One-command `install.sh`, run with `bash -c "$(curl ...)"` | A fresh Mac goes from nothing to set up. This form keeps the terminal interactive, so Homebrew's password prompt and chezmoi's questions work (`curl \| bash` breaks them). |
 | `chezmoi apply` runs `brew bundle --no-upgrade` when the Brewfile changes | Both Macs stay in sync automatically; upgrades stay a separate, deliberate `brew upgrade`. |
 | Installer moves an existing `~/.zshrc` to `~/.zshrc.local` | Machines with their own shell setup (like the work Mac) keep it, and chezmoi doesn't stop to ask about overwriting. If `~/.zshrc.local` already exists, the old file is saved as `~/.zshrc.pre-dotfiles` so nothing is lost. |
+| Work Mac: open a new Terminal tab after starting the Jamf admin window | A tab opened earlier can still turn down the password for `sudo`, so brew's prompts fail. |
 | Manual checklist for 1Password, App Management, `gh auth`, Alfred | These need sign-ins or privacy approvals that can't be scripted. |
 
 ## Claude Code

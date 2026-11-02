@@ -1,5 +1,3 @@
-tap "rhettbull/osxphotos"
-
 # CLI tools
 brew "git-delta"                # nicer git diffs
 brew "miller"                   # CSV/TSV/JSON toolkit (mlr)
@@ -18,7 +16,6 @@ brew "tree-sitter-cli"          # builds syntax highlighting for nvim
 brew "tmux"                     # keep terminal sessions alive, split panes
 brew "mole"                     # Mac cleanup
 brew "dockutil"                 # set pinned Dock apps
-brew "rhettbull/osxphotos/osxphotos"  # export and query Apple Photos
 
 # Shell
 brew "starship"                 # prompt

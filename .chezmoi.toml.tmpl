@@ -1,12 +1,12 @@
 {{- /* Asked once per machine; answers are saved locally, never in this repo. */ -}}
+{{- $machine := promptChoiceOnce . "machine" "Is this your work or personal Mac" (list "work" "personal") -}}
 {{- $name := promptStringOnce . "name" "Your full name" -}}
-{{- $personalEmail := promptStringOnce . "personalEmail" "Personal (GitHub) email" -}}
-{{- $workEmail := promptStringOnce . "workEmail" "Work (GitLab) email" -}}
+{{- $email := promptStringOnce . "email" (printf "Your %s email (for git)" $machine) -}}
 
 # Plain files become symlinks into the repo, so edits in ~ are edits here.
 mode = "symlink"
 
 [data]
+  machine = {{ $machine | quote }}
   name = {{ $name | quote }}
-  personalEmail = {{ $personalEmail | quote }}
-  workEmail = {{ $workEmail | quote }}
+  email = {{ $email | quote }}
