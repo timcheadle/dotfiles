@@ -1,0 +1,60 @@
+{{ if eq .chezmoi.os "darwin" -}}
+#!/usr/bin/env bash
+# Alfred setup. chezmoi runs this on every apply; it only changes things that aren't set yet.
+# Personal Mac: settings sync through iCloud Drive. Work Mac (no iCloud): plain Alfred on Cmd+Space.
+set -euo pipefail
+
+{{ if eq .machine "personal" -}}
+# Alfred 5 keeps its sync folder in prefs.json. Only switch once the iCloud copy exists,
+# and quit Alfred first so it doesn't overwrite the file.
+alfred_sync="$HOME/Library/Mobile Documents/com~apple~CloudDocs/Alfred"
+alfred_prefs="$HOME/Library/Application Support/Alfred/prefs.json"
+if [[ -d "$alfred_sync/Alfred.alfredpreferences" ]] && ! grep -q "com~apple~CloudDocs/Alfred" "$alfred_prefs" 2>/dev/null; then
+  osascript -e 'quit app "Alfred 5"' 2>/dev/null || true
+  mkdir -p "$(dirname "$alfred_prefs")"
+  cat > "$alfred_prefs" <<JSON
+{
+  "current" : "$alfred_sync/Alfred.alfredpreferences",
+  "syncfolders" : {
+    "5" : "~/Library/Mobile Documents/com~apple~CloudDocs/Alfred"
+  }
+}
+JSON
+  open -a "Alfred 5" 2>/dev/null || true
+fi
+{{- else -}}
+# Alfred makes a folder per Mac (local/<id>) the first time it opens; the hotkey lives there.
+# Cmd+Space is key 49 with the Command modifier (1048576).
+missing=()
+for dir in "$HOME/Library/Application Support/Alfred/Alfred.alfredpreferences/preferences/local"/*/; do
+  [[ -d "$dir" ]] || continue
+  if [[ "$(plutil -extract default.mod raw "$dir/hotkey/prefs.plist" 2>/dev/null)" != 1048576 ]]; then
+    missing+=("$dir")
+  fi
+done
+if (( ${#missing[@]} > 0 )); then
+  osascript -e 'quit app "Alfred 5"' 2>/dev/null || true
+  for dir in "${missing[@]}"; do
+    mkdir -p "$dir/hotkey"
+    cat > "$dir/hotkey/prefs.plist" <<'PLIST'
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>default</key>
+	<dict>
+		<key>key</key>
+		<integer>49</integer>
+		<key>mod</key>
+		<integer>1048576</integer>
+		<key>string</key>
+		<string>Space</string>
+	</dict>
+</dict>
+</plist>
+PLIST
+  done
+  open -a "Alfred 5" 2>/dev/null || true
+fi
+{{- end }}
+{{ end -}}

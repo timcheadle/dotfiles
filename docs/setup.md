@@ -25,11 +25,13 @@ The installer is safe to run again; finished steps are skipped.
 
 ## 2. Things that can't be scripted
 
+The installer checks these at the end and only lists the ones still to do (App Management and steps 6–7 can't be checked).
+
 1. **1Password**: sign in, then **Settings → Developer**: turn on **Use the SSH agent** and **Integrate with 1Password CLI**. Your SSH key and commit signing come from here.
-2. **System Settings → Privacy & Security → App Management**: allow **Ghostty**, so brew can update apps from it.
+2. **App Management**: if macOS asks, allow **Ghostty**, so brew can update apps from it. Ghostty only shows up in System Settings → Privacy & Security → App Management after macOS has asked.
 3. **GitHub / GitLab CLI**: `gh auth login` on the personal Mac, `glab auth login` on the work Mac.
-4. **Alfred**: wait for iCloud Drive to download the `Alfred` folder, then run `chezmoi apply` (or set it in Alfred Settings → Advanced).
-5. **Log out and back in** so keyboard settings take effect.
+4. **Alfred**: personal Mac: wait for iCloud Drive to download the `Alfred` folder, then run `chezmoi apply`. Work Mac (no iCloud): open Alfred once, then run `dotfiles-update` to set Cmd+Space.
+5. **Log out and back in** so keyboard settings take effect (only needed when the macOS settings changed).
 6. **SSH hosts**: recreate `~/.ssh/config.local` if you need old servers (it's not in the repo).
 7. **Work Mac**: put work-only things in `~/.zshrc.local`, `~/.gitconfig.local`, and add the SSH key to GitLab. If the old `.zshrc` was moved to `~/.zshrc.local`, remove anything that clashes with the repo setup (oh-my-zsh, another prompt), since it loads last and wins.
 

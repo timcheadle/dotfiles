@@ -99,24 +99,8 @@ done
 # Apply shortcut changes without logging out
 /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
 
-# --- Alfred: settings sync through iCloud Drive
-# Alfred 5 keeps its sync folder in prefs.json. Only switch once the iCloud copy exists,
-# and quit Alfred first so it doesn't overwrite the file.
-alfred_sync="$HOME/Library/Mobile Documents/com~apple~CloudDocs/Alfred"
-alfred_prefs="$HOME/Library/Application Support/Alfred/prefs.json"
-if [[ -d "$alfred_sync/Alfred.alfredpreferences" ]] && ! grep -q "com~apple~CloudDocs/Alfred" "$alfred_prefs" 2>/dev/null; then
-  osascript -e 'quit app "Alfred 5"' 2>/dev/null || true
-  mkdir -p "$(dirname "$alfred_prefs")"
-  cat > "$alfred_prefs" <<JSON
-{
-  "current" : "$alfred_sync/Alfred.alfredpreferences",
-  "syncfolders" : {
-    "5" : "~/Library/Mobile Documents/com~apple~CloudDocs/Alfred"
-  }
-}
-JSON
-  open -a "Alfred 5" 2>/dev/null || true
-fi
+# Tells install.sh to remind you to log out
+mkdir -p "$HOME/.local/state/dotfiles" && touch "$HOME/.local/state/dotfiles/macos-applied"
 
 echo "macOS settings applied. Some take effect after logging out and back in."
 {{ end -}}

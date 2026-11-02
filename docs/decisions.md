@@ -101,6 +101,7 @@ Why things are the way they are. Details of each setup live in the other docs.
 | Spotlight on Option+Space, Alfred on Cmd+Space; Ctrl+1–9 and Ctrl+arrows for desktops | Muscle memory. |
 | Light mode, no hot corners, screenshots on the Desktop, volume sound and startup chime on | Personal preference. The chime is the macOS default, so no admin step is needed. |
 | Alfred syncs via iCloud Drive, not the repo | iCloud is built into every Mac. Alfred data can be personal, so it stays out of a public repo. |
+| Work Mac: plain Alfred, script sets Cmd+Space | iCloud can't be signed into there, and snippets/workflows aren't needed at work; only the hotkey matters. |
 
 ## New Mac setup
 
@@ -112,6 +113,7 @@ Why things are the way they are. Details of each setup live in the other docs.
 | Installer moves an existing `~/.zshrc` to `~/.zshrc.local` | Machines with their own shell setup (like the work Mac) keep it, and chezmoi doesn't stop to ask about overwriting. If `~/.zshrc.local` already exists, the old file is saved as `~/.zshrc.pre-dotfiles` so nothing is lost. |
 | Work Mac: open a new Terminal tab after starting the Jamf admin window | A tab opened earlier can still turn down the password for `sudo`, so brew's prompts fail. |
 | Manual checklist for 1Password, App Management, `gh`/`glab auth`, Alfred | These need sign-ins or privacy approvals that can't be scripted. |
+| Installer checks the manual steps and lists only what's left | Rerunning it shouldn't nag about things already done. App Management can't be read without extra privacy access, so it's a note instead. |
 
 ## Claude Code
 

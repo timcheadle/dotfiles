@@ -60,18 +60,47 @@ else
 fi
 
 step "Apply: apps (brew bundle), configs, macOS settings"
-# First run asks for your name and emails; they're stored locally, not in the repo.
+# First run asks work or personal, your name and email; they're stored locally, not in the repo.
+run_start="$(mktemp)"
 chezmoi init --apply
 
+# Only list the manual steps that still need doing.
+todo=()
+machine="$(chezmoi execute-template '{{ .machine }}' 2>/dev/null || true)"
+if [[ ! -S "$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock" ]]; then
+  todo+=("1Password: sign in, then Settings > Developer: turn on 'Use the SSH agent'")
+fi
+if ! op account list 2>/dev/null | grep -q .; then
+  todo+=("1Password: Settings > Developer: turn on 'Integrate with 1Password CLI'")
+fi
+if [[ "$machine" == work ]]; then
+  glab auth status >/dev/null 2>&1 || todo+=("GitLab CLI: glab auth login")
+else
+  gh auth status >/dev/null 2>&1 || todo+=("GitHub CLI: gh auth login")
+fi
+if [[ "$machine" == work ]]; then
+  # The Alfred script sets Cmd+Space once Alfred has made its settings folder.
+  if ! grep -qs "<integer>1048576</integer>" "$HOME/Library/Application Support/Alfred/Alfred.alfredpreferences/preferences/local"/*/hotkey/prefs.plist; then
+    todo+=("Alfred: open it once, then run: dotfiles-update (sets Cmd+Space)")
+  fi
+elif ! grep -q "com~apple~CloudDocs/Alfred" "$HOME/Library/Application Support/Alfred/prefs.json" 2>/dev/null; then
+  todo+=("Alfred: wait for iCloud Drive to download the Alfred folder, then run: chezmoi apply")
+fi
+if [[ "$HOME/.local/state/dotfiles/macos-applied" -nt "$run_start" ]]; then
+  todo+=("Log out and back in so the new macOS settings take effect")
+fi
+rm -f "$run_start"
+
+echo
+if (( ${#todo[@]} == 0 )); then
+  echo "All set."
+else
+  echo "Done. Still to do by hand:"
+  for i in "${!todo[@]}"; do printf '  %d. %s\n' $((i + 1)) "${todo[$i]}"; done
+fi
 cat <<'EOF'
 
-Done. A few things can't be scripted. Full steps are in the setup guide:
-  ~/src/dotfiles/docs/setup.md
+If macOS asks about App Management, allow Ghostty (so brew can update apps).
+Setup guide: ~/src/dotfiles/docs/setup.md
   https://github.com/timcheadle/dotfiles/blob/main/docs/setup.md
-
-  1. 1Password: sign in, then Settings > Developer: turn on the SSH agent and CLI integration
-  2. System Settings > Privacy & Security > App Management: allow Ghostty
-  3. Personal Mac: gh auth login. Work Mac: glab auth login
-  4. Wait for iCloud Drive to sync the Alfred folder, then run: chezmoi apply
-  5. Log out and back in so keyboard settings take effect
 EOF
