@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Set up a Mac from scratch. Run in Terminal:
 #   bash -c "$(curl -fsSL https://raw.githubusercontent.com/timcheadle/dotfiles/main/install.sh)"
-# Safe to run again; finished steps are skipped. Next steps: docs/setup.md
+# Safe to run again; finished steps are skipped. Next steps: ~/src/dotfiles/docs/setup.md
 set -euo pipefail
 
 REPO_URL="https://github.com/timcheadle/dotfiles.git"
@@ -65,10 +65,13 @@ chezmoi init --apply
 
 cat <<'EOF'
 
-Done. A few things can't be scripted; see docs/setup.md:
+Done. A few things can't be scripted. Full steps are in the setup guide:
+  ~/src/dotfiles/docs/setup.md
+  https://github.com/timcheadle/dotfiles/blob/main/docs/setup.md
+
   1. 1Password: sign in, then Settings > Developer: turn on the SSH agent and CLI integration
   2. System Settings > Privacy & Security > App Management: allow Ghostty
-  3. GitHub CLI: gh auth login
+  3. Personal Mac: gh auth login. Work Mac: glab auth login
   4. Wait for iCloud Drive to sync the Alfred folder, then run: chezmoi apply
   5. Log out and back in so keyboard settings take effect
 EOF

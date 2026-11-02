@@ -3,7 +3,6 @@ brew "git-delta"                # nicer git diffs
 brew "miller"                   # CSV/TSV/JSON toolkit (mlr)
 brew "mise"                     # Ruby and Node versions per project
 brew "uv"                       # Python: versions, venvs, packages
-brew "gh"                       # GitHub CLI
 brew "jq"                       # JSON on the command line
 brew "mas"                      # App Store apps from the Brewfile
 brew "nmap"                     # network scanner

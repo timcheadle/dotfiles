@@ -1,6 +1,7 @@
 # Repo files that are not dotfiles
 Brewfile
 Brewfile.personal
+Brewfile.work
 README.md
 docs
 AGENTS.md

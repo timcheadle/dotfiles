@@ -54,7 +54,7 @@ Why things are the way they are. Details of each setup live in the other docs.
 
 | Decision | Why |
 |---|---|
-| Personal-only apps in `Brewfile.personal` (e.g. osxphotos) | The work Mac doesn't need them; the work/personal question picks which files run. |
+| Machine-only apps in `Brewfile.work` (glab) and `Brewfile.personal` (gh, osxphotos) | Each Mac only gets what it uses; the work/personal question picks the file. |
 | Every app and tool in the Brewfile, including ones installed by hand (adopted) | One list, one update command, and a new Mac gets everything. |
 | Slack from brew, not the App Store | Consistent with the other apps; new Macs don't depend on an App Store sign-in. |
 | Rectangle Pro | The paid version is the one in use. |
@@ -110,7 +110,7 @@ Why things are the way they are. Details of each setup live in the other docs.
 | `chezmoi apply` runs `brew bundle --no-upgrade` when the Brewfile changes | Both Macs stay in sync automatically; upgrades stay a separate, deliberate `brew upgrade`. |
 | Installer moves an existing `~/.zshrc` to `~/.zshrc.local` | Machines with their own shell setup (like the work Mac) keep it, and chezmoi doesn't stop to ask about overwriting. If `~/.zshrc.local` already exists, the old file is saved as `~/.zshrc.pre-dotfiles` so nothing is lost. |
 | Work Mac: open a new Terminal tab after starting the Jamf admin window | A tab opened earlier can still turn down the password for `sudo`, so brew's prompts fail. |
-| Manual checklist for 1Password, App Management, `gh auth`, Alfred | These need sign-ins or privacy approvals that can't be scripted. |
+| Manual checklist for 1Password, App Management, `gh`/`glab auth`, Alfred | These need sign-ins or privacy approvals that can't be scripted. |
 
 ## Claude Code
 
