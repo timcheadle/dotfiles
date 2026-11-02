@@ -37,6 +37,7 @@ The installer is safe to run again; finished steps are skipped.
 
 | Task | Command |
 |---|---|
+| Rerun the full installer (pull, apps, configs) | `dotfiles-update` |
 | Pull and apply the latest repo | `chezmoi update` |
 | Apply local edits to templates | `chezmoi apply` |
 | Upgrade apps and tools | `brew upgrade` |

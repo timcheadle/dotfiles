@@ -85,6 +85,12 @@ Defined in [`dot_config/zsh/aliases.zsh`](../dot_config/zsh/aliases.zsh).
 
 `EDITOR` and `VISUAL` are `nvim`, so git commit messages open in Neovim.
 
+### Dotfiles
+
+| Alias | Command | Why |
+|---|---|---|
+| `dotfiles-update` | Runs the latest `install.sh` from GitHub | Pulls the repo, installs missing apps, applies configs. Same as the README command |
+
 ### Git
 
 | Alias | Command | Why |

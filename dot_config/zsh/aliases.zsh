@@ -3,6 +3,9 @@ if (( $+commands[nvim] )); then
   alias vi=nvim vim=nvim
 fi
 
+# dotfiles: rerun the latest installer (pulls the repo, installs apps, applies configs)
+alias dotfiles-update='bash -c "$(curl -fsSL https://raw.githubusercontent.com/timcheadle/dotfiles/main/install.sh)"'
+
 # git
 alias gs='git status -sb'
 alias gp='git push'
