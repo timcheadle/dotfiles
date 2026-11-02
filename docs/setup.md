@@ -14,12 +14,14 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/timcheadle/dotfiles/main
 | chezmoi | `brew install chezmoi` | No |
 | Repo | Clones to `~/src/dotfiles`, links `~/.local/share/chezmoi` to it | No |
 | Existing `~/.zshrc` | Moved to `~/.zshrc.local`, which the new `.zshrc` loads at the end. If `~/.zshrc.local` already exists, it's saved as `~/.zshrc.pre-dotfiles` instead. | No |
-| Questions | Name, personal email, work email (stored in `~/.config/chezmoi/chezmoi.toml`, never in the repo) | No |
-| Apps and tools | `brew bundle` installs everything in the [`Brewfile`](../Brewfile) | A few apps may ask for your password |
+| Questions | Work or personal Mac, name, and that Mac's git email (stored in `~/.config/chezmoi/chezmoi.toml`, never in the repo) | No |
+| Apps and tools | `brew bundle` installs everything in the [`Brewfile`](../Brewfile), plus [`Brewfile.personal`](../Brewfile.personal) on the personal Mac | A few apps may ask for your password |
 | Configs | zsh, git, ssh, tmux, Ghostty, Neovim, starship, mise | No |
 | macOS settings | Keyboard, trackpad, Dock, Finder, shortcuts, Alfred | No |
 
 The installer is safe to run again; finished steps are skipped.
+
+**Work Mac:** start the Jamf admin window, **then open a new Terminal tab**, then run the installer. A tab opened before the admin window can still turn down your password.
 
 ## 2. Things that can't be scripted
 

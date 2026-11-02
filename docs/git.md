@@ -6,7 +6,7 @@ Config: [`dot_gitconfig.tmpl`](../dot_gitconfig.tmpl). Git aliases are in [shell
 
 | Setting | What it does |
 |---|---|
-| Email by remote | GitLab remotes use the work email; everything else uses the personal email |
+| One email per Mac | The work Mac uses the work email, the personal Mac the personal one |
 | `core.pager = delta` | Colourful diffs with syntax highlighting; `n`/`N` jump between files |
 | `init.defaultBranch = main` | New repos start on `main` |
 | `push.autoSetupRemote = true` | First push creates and tracks the remote branch |
@@ -19,6 +19,6 @@ Config: [`dot_gitconfig.tmpl`](../dot_gitconfig.tmpl). Git aliases are in [shell
 
 ## Machine-specific
 
-- Name and emails come from `~/.config/chezmoi/chezmoi.toml` (asked on first setup, never committed).
+- Name and email come from `~/.config/chezmoi/chezmoi.toml` (asked on first setup, never committed).
 - Anything machine-only goes in `~/.gitconfig.local`, which is loaded if it exists.
 - Global ignore file: `~/.config/git/ignore` (read by git automatically).

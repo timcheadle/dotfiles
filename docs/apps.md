@@ -35,7 +35,7 @@ Everything is in the [`Brewfile`](../Brewfile). Install or update with `brew bun
 | `nvim` | Editor |
 | `tmux` | Keep terminal sessions alive, split panes ([tmux.md](tmux.md)) |
 | `mole` | Mac cleanup |
-| `osxphotos` | Export and query Apple Photos (from the `rhettbull/osxphotos` tap) |
+| `osxphotos` | Export and query Apple Photos (from the `rhettbull/osxphotos` tap). Personal Mac only, in `Brewfile.personal` |
 
 Shell tools (starship, fzf, zoxide, zsh plugins) are covered in [shell.md](shell.md).
 

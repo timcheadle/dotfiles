@@ -1,14 +1,6 @@
 [user]
 	name = {{ .name }}
-	email = {{ .personalEmail }}
-
-# GitLab remotes (ssh or https) use the work email.
-[includeIf "hasconfig:remote.*.url:*gitlab*/**"]
-	path = ~/.config/git/work.gitconfig
-[includeIf "hasconfig:remote.*.url:https://*gitlab*/**"]
-	path = ~/.config/git/work.gitconfig
-[includeIf "hasconfig:remote.*.url:ssh://*gitlab*/**"]
-	path = ~/.config/git/work.gitconfig
+	email = {{ .email }}
 
 [core]
 	pager = delta
