@@ -36,7 +36,8 @@ if [[ ! -d "$DOTFILES/.git" ]]; then
   mkdir -p "$(dirname "$DOTFILES")"
   git clone "$REPO_URL" "$DOTFILES"
 else
-  echo "Already cloned."
+  echo "Already cloned; pulling the latest."
+  git -C "$DOTFILES" pull --ff-only || echo "Couldn't pull (local changes?); using the repo as it is."
 fi
 mkdir -p "$HOME/.local/share"
 if [[ ! -e "$HOME/.local/share/chezmoi" ]]; then
