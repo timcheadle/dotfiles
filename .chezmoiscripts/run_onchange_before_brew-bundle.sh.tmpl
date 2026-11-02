@@ -1,14 +1,12 @@
 {{ if eq .chezmoi.os "darwin" -}}
 #!/usr/bin/env bash
-# Installs anything missing from the Brewfile (plus Brewfile.personal on the personal Mac).
-# chezmoi re-runs this when either file changes.
+# Installs anything missing from the Brewfile, plus Brewfile.work or Brewfile.personal.
+# chezmoi re-runs this when any of them change.
 # Brewfile hash: {{ include "Brewfile" | sha256sum }}
-# Brewfile.personal hash: {{ include "Brewfile.personal" | sha256sum }}
+# Brewfile.{{ .machine }} hash: {{ include (printf "Brewfile.%s" .machine) | sha256sum }}
 # Upgrades are left to `brew upgrade`, so this stays quick.
 set -euo pipefail
 eval "$(/opt/homebrew/bin/brew shellenv)"
 brew bundle install --file="{{ .chezmoi.sourceDir }}/Brewfile" --no-upgrade
-{{- if eq .machine "personal" }}
-brew bundle install --file="{{ .chezmoi.sourceDir }}/Brewfile.personal" --no-upgrade
-{{- end }}
+brew bundle install --file="{{ .chezmoi.sourceDir }}/Brewfile.{{ .machine }}" --no-upgrade
 {{ end -}}

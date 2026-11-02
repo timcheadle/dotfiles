@@ -27,7 +27,8 @@ Everything is in the [`Brewfile`](../Brewfile). Install or update with `brew bun
 | `mlr` (Miller) | CSV/TSV/JSON toolkit |
 | `mise` | Ruby and Node versions per project |
 | `uv` | Python versions, venvs, packages |
-| `gh` | GitHub CLI |
+| `gh` | GitHub CLI. Personal Mac only, in `Brewfile.personal` |
+| `glab` | GitLab CLI. Work Mac only, in `Brewfile.work` |
 | `jq` | JSON on the command line |
 | `mas` | App Store apps from the Brewfile |
 | `nmap` | Network scanner |

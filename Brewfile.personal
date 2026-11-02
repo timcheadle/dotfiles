@@ -1,3 +1,4 @@
 # Personal Mac only, on top of the Brewfile.
 tap "rhettbull/osxphotos"
+brew "gh"                             # GitHub CLI
 brew "rhettbull/osxphotos/osxphotos"  # export and query Apple Photos
