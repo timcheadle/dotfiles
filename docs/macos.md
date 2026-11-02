@@ -61,7 +61,7 @@ To find the setting behind a checkbox: `defaults read > before.txt`, change it i
 
 | Shortcut | Does |
 |---|---|
-| `Cmd+Space` | Alfred (set in Alfred) |
+| `Cmd+Space` | Alfred (from iCloud sync on the personal Mac, set by script on the work Mac) |
 | `Option+Space` | Spotlight |
 | `Cmd+Option+Space` | Finder search window |
 | `Ctrl+←` / `Ctrl+→` | Previous / next desktop |
@@ -72,3 +72,10 @@ To find the setting behind a checkbox: `defaults read > before.txt`, change it i
 Settings sync through **iCloud Drive → Alfred** (`~/Library/Mobile Documents/com~apple~CloudDocs/Alfred`), not the repo: snippets and workflows can hold personal info. The script points Alfred 5 at it by writing `~/Library/Application Support/Alfred/prefs.json` (Alfred 5 ignores the old `syncfolder` default). The previous Dropbox copy is kept as a backup.
 
 On a new Mac, wait for iCloud Drive to download the Alfred folder, then run `chezmoi apply` again if Alfred didn't pick it up.
+
+| | Personal Mac | Work Mac |
+|---|---|---|
+| Settings | Synced through iCloud Drive | Plain Alfred, nothing synced (no iCloud there) |
+| Hotkey | Cmd+Space, from the synced settings | Cmd+Space, written by the script into Alfred's `local/<id>/hotkey/prefs.plist` |
+
+This lives in `.chezmoiscripts/run_after_alfred.sh.tmpl`, which runs on every `chezmoi apply` and only changes what isn't set yet. On the work Mac, Alfred makes its settings folder the first time it opens, so open it once before applying.
