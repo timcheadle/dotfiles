@@ -107,6 +107,7 @@ Why things are the way they are. Details of each setup live in the other docs.
 | Decision | Why |
 |---|---|
 | One-command `install.sh`, run with `bash -c "$(curl ...)"` | A fresh Mac goes from nothing to set up. This form keeps the terminal interactive, so Homebrew's password prompt and chezmoi's questions work (`curl \| bash` breaks them). |
+| `dotfiles-update` alias reruns the installer from GitHub | One easy-to-remember command; always runs the latest installer. |
 | `chezmoi apply` runs `brew bundle --no-upgrade` when the Brewfile changes | Both Macs stay in sync automatically; upgrades stay a separate, deliberate `brew upgrade`. |
 | Installer moves an existing `~/.zshrc` to `~/.zshrc.local` | Machines with their own shell setup (like the work Mac) keep it, and chezmoi doesn't stop to ask about overwriting. If `~/.zshrc.local` already exists, the old file is saved as `~/.zshrc.pre-dotfiles` so nothing is lost. |
 | Work Mac: open a new Terminal tab after starting the Jamf admin window | A tab opened earlier can still turn down the password for `sudo`, so brew's prompts fail. |
