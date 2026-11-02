@@ -12,7 +12,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/timcheadle/dotfiles/main
 |---|---|---|
 | Homebrew | Installs Homebrew and Apple's developer tools | **Yes**: asks for your password once. On the work Mac, use a Jamf admin window. |
 | chezmoi | `brew install chezmoi` | No |
-| Repo | Clones to `~/src/dotfiles`, links `~/.local/share/chezmoi` to it | No |
+| Repo | Clones to `~/src/dotfiles` (or pulls the latest if already there), links `~/.local/share/chezmoi` to it | No |
 | Existing `~/.zshrc` | Moved to `~/.zshrc.local`, which the new `.zshrc` loads at the end. If `~/.zshrc.local` already exists, it's saved as `~/.zshrc.pre-dotfiles` instead. | No |
 | Questions | Work or personal Mac, name, and that Mac's git email (stored in `~/.config/chezmoi/chezmoi.toml`, never in the repo) | No |
 | Apps and tools | `brew bundle` installs everything in the [`Brewfile`](../Brewfile), plus [`Brewfile.personal`](../Brewfile.personal) on the personal Mac | A few apps may ask for your password |
