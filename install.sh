@@ -62,7 +62,18 @@ fi
 step "Apply: apps (brew bundle), configs, macOS settings"
 # First run asks work or personal, your name and email; they're stored locally, not in the repo.
 run_start="$(mktemp)"
-chezmoi init --apply
+# Ask work or personal here, so it takes the whole word (chezmoi's prompt answers on one letter).
+init_args=()
+machine="$(chezmoi execute-template '{{ .machine }}' 2>/dev/null || true)"
+if [[ "$machine" != work && "$machine" != personal ]]; then
+  while true; do
+    read -r -p "Is this your work or personal Mac? (type work or personal): " machine
+    [[ "$machine" == work || "$machine" == personal ]] && break
+    echo "Please type the whole word: work or personal."
+  done
+  init_args=(--promptChoice "Is this your work or personal Mac=$machine")
+fi
+chezmoi init --apply ${init_args[@]+"${init_args[@]}"}
 
 # Only list the manual steps that still need doing.
 todo=()
