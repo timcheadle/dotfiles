@@ -23,7 +23,7 @@ Why things are the way they are. Details of each setup live in the other docs.
 | `pull.rebase`, `rebase.autoStash`, `zdiff3`, `rerere`, `autoSetupRemote` | Modern defaults that remove common friction. |
 | No `fetch.prune` | Keep remote branches until deleted on purpose. |
 | Short aliases for the commands actually used | `gs`, `gd`, `gco`, `gc`… are fast to type. `gb` is blame and `gbr` is branch. |
-| Sign all commits with the 1Password SSH key | Verified commits on GitHub, no separate GPG key. Mac only, since it uses 1Password's signer. GitLab needs the key added there. |
+| No commit signing | Each laptop has different keys, so one shared signing key doesn't fit. A Mac can turn it on in `~/.gitconfig.local`. |
 
 ## Shell
 

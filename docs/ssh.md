@@ -15,7 +15,7 @@ Config: [`private_dot_ssh/config.tmpl`](../private_dot_ssh/config.tmpl).
 
 | Key | Where | Used for |
 |---|---|---|
-| GitHub SSH Key (ed25519) | 1Password, Private vault | GitHub login and commit signing |
+| GitHub SSH Key (ed25519) | 1Password, Private vault | GitHub login |
 | `id_rsa` and older project keys | `~/.ssh` files | Kept until it's clear where they're used; then import into 1Password or retire |
 
 ## Setup on a new Mac
@@ -28,6 +28,6 @@ Config: [`private_dot_ssh/config.tmpl`](../private_dot_ssh/config.tmpl).
 ## Adding a key to GitHub
 
 ```
-gh auth refresh -h github.com -s admin:public_key,admin:ssh_signing_key   # once
+gh auth refresh -h github.com -s admin:public_key   # once
 op read "op://Private/GitHub SSH Key/public key" | gh ssh-key add - --title "..." --type authentication
 ```
