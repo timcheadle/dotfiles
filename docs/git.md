@@ -15,7 +15,7 @@ Config: [`dot_gitconfig.tmpl`](../dot_gitconfig.tmpl). Git aliases are in [shell
 | `merge.conflictStyle = zdiff3` | Conflicts also show the original code, so they're easier to read |
 | `rerere.enabled = true` | Remembers how you fixed a conflict and reuses the fix (`git rerere forget <file>` to undo) |
 | `branch.sort = -committerdate` | `git branch` lists recent branches first |
-| Commit signing (Mac only) | Every commit is signed with the 1Password SSH key (`gpg.format = ssh`, `op-ssh-sign`). GitHub shows them as Verified. For GitLab, add the same public key there as a signing key. |
+| No commit signing | Off, since each laptop has its own keys. To turn it on for one Mac, add `user.signingkey`, `gpg.format = ssh` and `commit.gpgsign = true` to `~/.gitconfig.local`. |
 
 ## Machine-specific
 
