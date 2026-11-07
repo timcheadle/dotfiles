@@ -6,5 +6,6 @@
   },
   "alwaysThinkingEnabled": true,
   "tui": "fullscreen",
-  "theme": "custom:dark-ansi"
+  "theme": "custom:dark-ansi",
+  "attribution": { "commit": "", "pr": "" }
 }

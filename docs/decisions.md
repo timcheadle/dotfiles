@@ -120,5 +120,6 @@ Why things are the way they are. Details of each setup live in the other docs.
 |---|---|
 | Shared `settings.json` in the repo | Both Macs get the same model, thinking, display and theme. |
 | No status hooks | Ghostty shows Claude's status itself. |
+| No Claude co-author line on commits or PRs | Commits are mine; the line made GitHub list Claude as a contributor. Old commits were rewritten to drop it. |
 | One personal instructions file (`agents/AGENTS.md`) shared by Claude Code and Codex | Edit once, every tool follows it. |
 | Theme: dark-ansi with darker message backgrounds | Code is coloured with the terminal's Catppuccin palette. ANSI themes only allow the 16 terminal colours, so diffs keep their built-in look. |

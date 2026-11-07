@@ -9,6 +9,7 @@ Settings: [`dot_claude/settings.json`](../dot_claude/settings.json), linked as `
 | `tui` | `fullscreen` | Smooth, flicker-free display; scroll inside Claude |
 | `theme` | `custom:dark-ansi` | See below |
 | `enabledPlugins` | `frontend-design` | Better-looking web and UI work |
+| `attribution` | Empty for commits and PRs | No "Co-Authored-By: Claude" line, so Claude isn't listed as a GitHub contributor |
 
 No hooks: Ghostty shows Claude's status (working, waiting) by itself.
 
