@@ -8,7 +8,7 @@ Helper tools (in the Brewfile): `ripgrep`, `fd`, `lazygit`, `tree-sitter-cli`.
 
 | Change | File | Why |
 |---|---|---|
-| Rosé Pine Moon colour scheme | [`lua/plugins/colorscheme.lua`](../nvim/lua/plugins/colorscheme.lua) | Matches everything else |
+| Catppuccin Mocha colour scheme | [`lua/plugins/colorscheme.lua`](../nvim/lua/plugins/colorscheme.lua) | Matches everything else |
 | Command line at the bottom (not a pop-up) | [`lua/plugins/ui.lua`](../nvim/lua/plugins/ui.lua) | Classic vim feel; the rest of noice stays |
 
 ## Keys to start with

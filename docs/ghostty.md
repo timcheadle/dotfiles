@@ -4,7 +4,7 @@ Config: [`dot_config/ghostty/config`](../dot_config/ghostty/config). Reload with
 
 | Setting | Value | Why |
 |---|---|---|
-| `theme` | Rose Pine Moon | Built in; see [theme.md](theme.md) |
+| `theme` | Catppuccin Mocha | Built in; see [theme.md](theme.md) |
 | Font | JetBrains Mono (built in), ligatures off | `!=` and `=>` stay as typed |
 | `window-padding-x` / `-y` | 10 / 8, balanced | A little breathing room around text |
 | `background-opacity` | 0.95 | Subtly see-through |

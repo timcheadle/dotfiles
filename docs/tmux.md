@@ -51,4 +51,4 @@ On: click a pane to select it, click a window name in the status bar to switch, 
 | 50,000 lines of history | |
 | `escape-time 10` | No delay after Esc in nvim |
 | `allow-passthrough`, `focus-events`, `extended-keys` | Claude Code works inside tmux: Shift+Enter, notifications |
-| Status bar and borders | Rosé Pine Moon |
+| Status bar and borders | Catppuccin Mocha |

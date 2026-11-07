@@ -23,7 +23,7 @@ Then follow the checklist in [docs/setup.md](docs/setup.md).
 - [Ghostty](docs/ghostty.md): terminal settings
 - [tmux](docs/tmux.md): sessions and keys
 - [Claude Code](docs/claude-code.md): settings and theme
-- [Theme](docs/theme.md): Rosé Pine Moon colours and where they are set
+- [Theme](docs/theme.md): Catppuccin Mocha colours and where they are set
 - [macOS](docs/macos.md): system settings, Dock, shortcuts, Alfred
 - [Decisions](docs/decisions.md): what was chosen and why
 

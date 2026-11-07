@@ -25,13 +25,13 @@ export CLICOLOR=1
 alias grep='grep --color=auto'
 
 # Tools
-# fzf colours: Rosé Pine Moon (https://github.com/rose-pine/fzf)
+# fzf colours: Catppuccin Mocha (https://github.com/catppuccin/fzf)
 export FZF_DEFAULT_OPTS="
-  --color=fg:#908caa,bg:#232136,hl:#ea9a97
-  --color=fg+:#e0def4,bg+:#393552,hl+:#ea9a97
-  --color=border:#44415a,header:#3e8fb0,gutter:#232136
-  --color=spinner:#f6c177,info:#9ccfd8
-  --color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa"
+  --color=fg:#cdd6f4,bg:#1e1e2e,hl:#f38ba8
+  --color=fg+:#cdd6f4,bg+:#313244,hl+:#f38ba8
+  --color=border:#313244,header:#f38ba8,gutter:#1e1e2e
+  --color=spinner:#f5e0dc,info:#cba6f7
+  --color=pointer:#f5e0dc,marker:#b4befe,prompt:#cba6f7"
 eval "$(fzf --zsh)"
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"

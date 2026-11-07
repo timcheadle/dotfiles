@@ -45,7 +45,7 @@ Why things are the way they are. Details of each setup live in the other docs.
 
 | Decision | Why |
 |---|---|
-| Rosé Pine Moon everywhere | Soothing palette. Set in each tool; anything using the terminal's 16 colours follows automatically. See [theme.md](theme.md). |
+| Catppuccin Mocha everywhere | Soothing palette. Replaced Rosé Pine Moon (Nov 2026): Mocha is darker, and it has a real green, so diffs read better (Rosé Pine's "green" is a blue). Set in each tool; anything using the terminal's 16 colours follows automatically. See [theme.md](theme.md). |
 | JetBrains Mono, ligatures off | Clear letterforms and comfortable line height; operators like `!=` stay as typed. Built into Ghostty, so nothing to install. |
 | Ghostty as the terminal | Modern and fast, with the theme and icons built in. |
 | Ghostty: subtle transparency (0.95, blur 20), extra padding | Just enough depth without distraction. Coloured backgrounds are see-through too, so diffs match. |
@@ -121,4 +121,4 @@ Why things are the way they are. Details of each setup live in the other docs.
 | Shared `settings.json` in the repo | Both Macs get the same model, thinking, display and theme. |
 | No status hooks | Ghostty shows Claude's status itself. |
 | One personal instructions file (`agents/AGENTS.md`) shared by Claude Code and Codex | Edit once, every tool follows it. |
-| Theme: dark-ansi with darker message backgrounds | Code is coloured with the terminal's Rosé Pine palette. ANSI themes only allow the 16 terminal colours, so diffs keep their built-in look. |
+| Theme: dark-ansi with darker message backgrounds | Code is coloured with the terminal's Catppuccin palette. ANSI themes only allow the 16 terminal colours, so diffs keep their built-in look. |

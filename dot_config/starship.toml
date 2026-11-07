@@ -3,47 +3,45 @@
 "$schema" = "https://starship.rs/config-schema.json"
 
 add_newline = true
-palette = "rose-pine-moon"
+palette = "catppuccin-mocha"
 format = "$time$directory$git_branch$git_status$cmd_duration$line_break$character"
 
 [time]
 disabled = false
-style = "muted"
+style = "overlay1"
 format = "[$time]($style) "
 time_format = "%H:%M"
 
 [directory]
-style = "bold foam"
+style = "bold teal"
 truncation_length = 4
 truncate_to_repo = false
 
 [cmd_duration]
-style = "gold"
+style = "yellow"
 min_time = 2_000  # only show for commands that take 2s or more
 format = "took [$duration]($style) "
 
 [git_branch]
-style = "bold iris"
+style = "bold mauve"
 
 [git_status]
-style = "love"
+style = "red"
 
 # ❯ changes colour when the last command failed
 [character]
-success_symbol = "[❯](bold pine)"
-error_symbol = "[❯](bold love)"
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
 
-# Rosé Pine Moon: https://rosepinetheme.com/palette
-[palettes.rose-pine-moon]
-base = "#232136"
-surface = "#2a273f"
-overlay = "#393552"
-muted = "#6e6a86"
-subtle = "#908caa"
-text = "#e0def4"
-love = "#eb6f92"
-gold = "#f6c177"
-rose = "#ea9a97"
-pine = "#3e8fb0"
-foam = "#9ccfd8"
-iris = "#c4a7e7"
+# Catppuccin Mocha: https://catppuccin.com/palette
+[palettes.catppuccin-mocha]
+base = "#1e1e2e"
+text = "#cdd6f4"
+overlay1 = "#7f849c"
+red = "#f38ba8"
+peach = "#fab387"
+yellow = "#f9e2af"
+green = "#a6e3a1"
+teal = "#94e2d5"
+blue = "#89b4fa"
+mauve = "#cba6f7"
