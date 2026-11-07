@@ -61,7 +61,7 @@ To find the setting behind a checkbox: `defaults read > before.txt`, change it i
 
 | Shortcut | Does |
 |---|---|
-| `Cmd+Space` | Alfred (from iCloud sync on the personal Mac, set by script on the work Mac) |
+| `Cmd+Space` | Alfred (from iCloud sync, or set by script on a Mac without iCloud) |
 | `Option+Space` | Spotlight |
 | `Cmd+Option+Space` | Finder search window |
 | `Ctrl+←` / `Ctrl+→` | Previous / next desktop |
@@ -73,9 +73,11 @@ Settings sync through **iCloud Drive → Alfred** (`~/Library/Mobile Documents/c
 
 On a new Mac, wait for iCloud Drive to download the Alfred folder, then run `chezmoi apply` again if Alfred didn't pick it up.
 
-| | Personal Mac | Work Mac |
+The script checks whether iCloud Drive has an `Alfred` folder; no work/personal setting is needed.
+
+| | iCloud has the Alfred folder (personal Mac) | No iCloud (work Mac) |
 |---|---|---|
-| Settings | Synced through iCloud Drive | Plain Alfred, nothing synced (no iCloud there) |
+| Settings | Synced through iCloud Drive | Plain Alfred, nothing synced |
 | Hotkey | Cmd+Space, from the synced settings | Cmd+Space, written by the script into Alfred's `local/<id>/hotkey/prefs.plist` |
 
-This lives in `.chezmoiscripts/run_after_alfred.sh.tmpl`, which runs on every `chezmoi apply` and only changes what isn't set yet. On the work Mac, Alfred makes its settings folder the first time it opens, so open it once before applying.
+This lives in `.chezmoiscripts/run_after_alfred.sh.tmpl`, which runs on every `chezmoi apply` and only changes what isn't set yet. Without iCloud, Alfred makes its settings folder the first time it opens, so open it once before applying.

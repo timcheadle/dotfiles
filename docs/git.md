@@ -6,7 +6,7 @@ Config: [`dot_gitconfig.tmpl`](../dot_gitconfig.tmpl). Git aliases are in [shell
 
 | Setting | What it does |
 |---|---|
-| One email per Mac | The work Mac uses the work email, the personal Mac the personal one |
+| One email per Mac | Asked on first setup, so the work Mac uses the work email and the personal Mac the personal one |
 | `core.pager = delta` | Colourful diffs with syntax highlighting; `n`/`N` jump between files |
 | `init.defaultBranch = main` | New repos start on `main` |
 | `push.autoSetupRemote = true` | First push creates and tracks the remote branch |

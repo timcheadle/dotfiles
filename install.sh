@@ -60,42 +60,16 @@ else
 fi
 
 step "Apply: apps (brew bundle), configs, macOS settings"
-# First run asks work or personal, your name and email; they're stored locally, not in the repo.
+# First run asks your name and git email; they're stored locally, not in the repo.
 run_start="$(mktemp)"
-# Ask work or personal here, so it takes the whole word (chezmoi's prompt answers on one letter).
-init_args=()
-machine="$(chezmoi execute-template '{{ .machine }}' 2>/dev/null || true)"
-if [[ "$machine" != work && "$machine" != personal ]]; then
-  while true; do
-    read -r -p "Is this your work or personal Mac? (type work or personal): " machine
-    [[ "$machine" == work || "$machine" == personal ]] && break
-    echo "Please type the whole word: work or personal."
-  done
-  init_args=(--promptChoice "Is this your work or personal Mac=$machine")
-fi
-chezmoi init --apply ${init_args[@]+"${init_args[@]}"}
+chezmoi init --apply
 
 # Only list the manual steps that still need doing.
 todo=()
-machine="$(chezmoi execute-template '{{ .machine }}' 2>/dev/null || true)"
-if [[ ! -S "$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock" ]]; then
-  todo+=("1Password: sign in, then Settings > Developer: turn on 'Use the SSH agent'")
-fi
-if ! op account list 2>/dev/null | grep -q .; then
-  todo+=("1Password: Settings > Developer: turn on 'Integrate with 1Password CLI'")
-fi
-if [[ "$machine" == work ]]; then
-  glab auth status >/dev/null 2>&1 || todo+=("GitLab CLI: glab auth login")
-else
-  gh auth status >/dev/null 2>&1 || todo+=("GitHub CLI: gh auth login")
-fi
-if [[ "$machine" == work ]]; then
-  # The Alfred script sets Cmd+Space once Alfred has made its settings folder.
-  if ! grep -qs "<integer>1048576</integer>" "$HOME/Library/Application Support/Alfred/Alfred.alfredpreferences/preferences/local"/*/hotkey/prefs.plist; then
-    todo+=("Alfred: open it once, then run: dotfiles-update (sets Cmd+Space)")
-  fi
-elif ! grep -q "com~apple~CloudDocs/Alfred" "$HOME/Library/Application Support/Alfred/prefs.json" 2>/dev/null; then
-  todo+=("Alfred: wait for iCloud Drive to download the Alfred folder, then run: chezmoi apply")
+alfred_dir="$HOME/Library/Application Support/Alfred"
+if ! grep -qs "com~apple~CloudDocs/Alfred" "$alfred_dir/prefs.json" \
+  && ! grep -qs "<integer>1048576</integer>" "$alfred_dir/Alfred.alfredpreferences/preferences/local"/*/hotkey/prefs.plist; then
+  todo+=("Alfred: open it once (or wait for iCloud Drive's Alfred folder), then run: dotfiles-update")
 fi
 if [[ "$HOME/.local/state/dotfiles/macos-applied" -nt "$run_start" ]]; then
   todo+=("Log out and back in so the new macOS settings take effect")
@@ -111,7 +85,7 @@ else
 fi
 cat <<'EOF'
 
-If macOS asks about App Management, allow Ghostty (so brew can update apps).
+Sign-ins (1Password, gh/glab auth) and App Management: see the setup guide.
 Setup guide: ~/src/dotfiles/docs/setup.md
   https://github.com/timcheadle/dotfiles/blob/main/docs/setup.md
 EOF

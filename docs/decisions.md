@@ -9,7 +9,8 @@ Why things are the way they are. Details of each setup live in the other docs.
 | **chezmoi + Homebrew**, no Nix | Both Macs are set up the same way. The work Mac (Jamf) only allows 5-minute admin windows, and nix-darwin needs admin on every change. chezmoi needs no admin; brew handles apps and tools. |
 | **Mac first**, Linux (kubetops) later | The Mac is the daily machine. Configs are plain files so they can be reused on Linux. |
 | **Repo is shared stuff only** | Work and personal Macs are nearly identical. Work-specific things go in local files the repo never touches (`~/.zshrc.local`, `~/.gitconfig.local`, `~/.Brewfile.local`), which keeps a public repo safe. |
-| **No personal info in the repo** | The repo is public. Work or personal Mac, name and git email are asked once per machine by chezmoi and stored in `~/.config/chezmoi/chezmoi.toml`. |
+| **No work/personal switch** | One setup for every Mac keeps the repo simple. Where Macs differ (like Alfred and iCloud), scripts check what's there instead of asking. |
+| **No personal info in the repo** | The repo is public. Name and git email are asked once per machine by chezmoi and stored in `~/.config/chezmoi/chezmoi.toml`. |
 | **chezmoi symlink mode**, repo at `~/src/dotfiles` | Editing a config in `~` edits the repo directly. `~/.local/share/chezmoi` links to the repo so it's easy to find. Templated files (`.tmpl`) are copied and need `chezmoi apply`. |
 | **No Dropbox or Mackup** | Everything lives in the repo or in each app's own sync. |
 | **Default branch is `main`** | Modern default; matches `init.defaultBranch = main`. The pre-2020 setup is on the `archive` branch. |
@@ -18,7 +19,7 @@ Why things are the way they are. Details of each setup live in the other docs.
 
 | Decision | Why |
 |---|---|
-| One git email per Mac, set by the work/personal question | Simple: the work Mac never needs the personal email, and the other way round. |
+| One git email per Mac, asked on first setup | Simple: the work Mac never needs the personal email, and the other way round. |
 | delta for diffs | Readable, syntax-highlighted diffs. |
 | `pull.rebase`, `rebase.autoStash`, `zdiff3`, `rerere`, `autoSetupRemote` | Modern defaults that remove common friction. |
 | No `fetch.prune` | Keep remote branches until deleted on purpose. |
@@ -54,7 +55,8 @@ Why things are the way they are. Details of each setup live in the other docs.
 
 | Decision | Why |
 |---|---|
-| Machine-only apps in `Brewfile.work` (glab) and `Brewfile.personal` (gh, osxphotos) | Each Mac only gets what it uses; the work/personal question picks the file. |
+| `gh` and `glab` on every Mac | Small and harmless where unused; avoids per-Mac Brewfiles. |
+| One-Mac apps in `~/.Brewfile.local` (e.g. osxphotos) | Kept out of the shared list; `chezmoi apply` installs it if present. |
 | Every app and tool in the Brewfile, including ones installed by hand (adopted) | One list, one update command, and a new Mac gets everything. |
 | Slack from brew, not the App Store | Consistent with the other apps; new Macs don't depend on an App Store sign-in. |
 | Rectangle Pro | The paid version is the one in use. |
@@ -65,10 +67,7 @@ Why things are the way they are. Details of each setup live in the other docs.
 
 | Decision | Why |
 |---|---|
-| SSH keys live in 1Password (agent), ed25519 key for GitHub | No key files on disk, Touch ID to use, same keys on every Mac. |
-| Older key files stay in `~/.ssh` until migrated | Not yet known which servers use them. |
-| Server hosts in `~/.ssh/config.local`, not the repo | The repo is public; host names and addresses are private. |
-| 1Password agent line is Mac-only | Linux machines don't have it; the line would break ssh there. |
+| SSH isn't managed by this repo | The work Mac's SSH settings are managed by Jamf, and keys are machine-specific. Each Mac sets up SSH on its own. |
 
 ## tmux
 
@@ -101,7 +100,7 @@ Why things are the way they are. Details of each setup live in the other docs.
 | Spotlight on Option+Space, Alfred on Cmd+Space; Ctrl+1–9 and Ctrl+arrows for desktops | Muscle memory. |
 | Light mode, no hot corners, screenshots on the Desktop, volume sound and startup chime on | Personal preference. The chime is the macOS default, so no admin step is needed. |
 | Alfred syncs via iCloud Drive, not the repo | iCloud is built into every Mac. Alfred data can be personal, so it stays out of a public repo. |
-| Work Mac: plain Alfred, script sets Cmd+Space | iCloud can't be signed into there, and snippets/workflows aren't needed at work; only the hotkey matters. |
+| Without iCloud (work Mac): plain Alfred, script sets Cmd+Space | iCloud can't be signed into there, and snippets/workflows aren't needed at work; only the hotkey matters. The script checks for the iCloud folder, so no work/personal setting is needed. |
 
 ## New Mac setup
 
@@ -112,9 +111,8 @@ Why things are the way they are. Details of each setup live in the other docs.
 | `chezmoi apply` runs `brew bundle --no-upgrade` when the Brewfile changes | Both Macs stay in sync automatically; upgrades stay a separate, deliberate `brew upgrade`. |
 | Installer moves an existing `~/.zshrc` to `~/.zshrc.local` | Machines with their own shell setup (like the work Mac) keep it, and chezmoi doesn't stop to ask about overwriting. If `~/.zshrc.local` already exists, the old file is saved as `~/.zshrc.pre-dotfiles` so nothing is lost. |
 | Work Mac: open a new Terminal tab after starting the Jamf admin window | A tab opened earlier can still turn down the password for `sudo`, so brew's prompts fail. |
-| Manual checklist for 1Password, App Management, `gh`/`glab auth`, Alfred | These need sign-ins or privacy approvals that can't be scripted. |
-| Installer asks work or personal itself, whole word only | chezmoi's choice prompt answers on one letter, so a stray key could pick the wrong Mac. |
-| Installer checks the manual steps and lists only what's left | Rerunning it shouldn't nag about things already done. App Management can't be read without extra privacy access, so it's a note instead. |
+| Short manual checklist: sign-ins, App Management, Alfred, log out | These need sign-ins or privacy approvals that can't be scripted. |
+| Installer checks Alfred and log-out, and lists only what's left | Rerunning it shouldn't nag about things already done. Sign-ins and App Management are in the setup guide. |
 
 ## Claude Code
 

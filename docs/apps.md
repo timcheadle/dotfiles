@@ -27,8 +27,8 @@ Everything is in the [`Brewfile`](../Brewfile). Install or update with `brew bun
 | `mlr` (Miller) | CSV/TSV/JSON toolkit |
 | `mise` | Ruby and Node versions per project |
 | `uv` | Python versions, venvs, packages |
-| `gh` | GitHub CLI. Personal Mac only, in `Brewfile.personal` |
-| `glab` | GitLab CLI. Work Mac only, in `Brewfile.work` |
+| `gh` | GitHub CLI |
+| `glab` | GitLab CLI |
 | `jq` | JSON on the command line |
 | `mas` | App Store apps from the Brewfile |
 | `nmap` | Network scanner |
@@ -36,9 +36,17 @@ Everything is in the [`Brewfile`](../Brewfile). Install or update with `brew bun
 | `nvim` | Editor |
 | `tmux` | Keep terminal sessions alive, split panes ([tmux.md](tmux.md)) |
 | `mole` | Mac cleanup |
-| `osxphotos` | Export and query Apple Photos (from the `rhettbull/osxphotos` tap). Personal Mac only, in `Brewfile.personal` |
 
 Shell tools (starship, fzf, zoxide, zsh plugins) are covered in [shell.md](shell.md).
+
+## Apps for one Mac only
+
+Put them in `~/.Brewfile.local` on that Mac (not in the repo). `chezmoi apply` installs it too. For example, on the personal Mac:
+
+```
+tap "rhettbull/osxphotos"
+brew "rhettbull/osxphotos/osxphotos"  # export and query Apple Photos
+```
 
 ## Adding apps
 

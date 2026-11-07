@@ -1,2 +1,0 @@
-# Work Mac only, on top of the Brewfile.
-brew "glab"                           # GitLab CLI

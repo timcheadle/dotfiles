@@ -19,7 +19,6 @@ Then follow the checklist in [docs/setup.md](docs/setup.md).
 - [Shell](docs/shell.md): zsh setup and all aliases
 - [Git](docs/git.md): git settings
 - [Apps](docs/apps.md): apps and CLI tools in the Brewfile
-- [SSH](docs/ssh.md): 1Password SSH agent and keys
 - [Neovim](docs/nvim.md): LazyVim setup, keys and changes
 - [Ghostty](docs/ghostty.md): terminal settings
 - [tmux](docs/tmux.md): sessions and keys
